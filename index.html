@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Car Dealership</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- header section  -->
+    <header class="header">
+
+        <div id="menu-btn" class="fas fa-bars"></div>
+
+        <a href="#" class="logo"><span>Car</span>Dealership</a>
+
+        <nav class="navbar">
+            <a href="#home">home</a>
+            <a href="#vehicles">vehicles</a>
+            <a href="#auction">auction</a>
+            <a href="#contact">contact</a>
+        </nav>
+
+        <div id="login-btn">
+            <button class="btn">login</button>
+            <i class="far fa-user"></i>
+        </div>
+
+    </header>
+    <!-- header section end -->
+
+    <!-- login form -->
+    <div class="login-form-container">
+
+        <span class="fas fa-times" id="close-login-form"></span>
+
+        <form action="">
+            <h3>user login</h3>
+            <input type="email" placeholder="email" class="box" required>
+            <input type="password" placeholder="password" class="box" required>
+            <p>forget your password <a href="#">click here</a></p>
+            <input type="submit" value="login now" class="btn">
+            <p>or login with</p>
+            <div class="buttons">
+                <a href="#" class="btn">Google</a>
+                <a href="#" class="btn">Facebook</a>
+            </div>
+            <p>don't have an account <a href="#">create one</a></p>
+        </form>
+    </div>
+    
+<!-- home section -->
+    <section class="home" id="home">
+     <h1 class="home-parallax" data-speed="-2">Car Dealership</h1>   
+    <img class="home-parallax" data-speed="5" src="cars_data/vehicle-8.png" alt="">
+    <a href="#" class="btn home-parallax" data-speed="7">explore and bid cars</a>
+    </section>
+<!-- home section end -->
+
+<!-- icon section start  -->
+    <section class="icons-container">
+        <div class="icons">
+            <div class="fas fa-home">
+                <div class="content">
+                    <h3>150+</h3>
+                    <p>branches</p>
+                </div>
+            </div>
+        </div>
+        <div class="icons">
+            <div class="fas fa-car">
+                <div class="content">
+                    <h3>150+</h3>
+                    <p>branches</p>
+                </div>
+            </div>
+        </div>
+        <div class="icons">
+            <div class="fas fa-users">
+                <div class="content">
+                    <h3>150+</h3>
+                    <p>branches</p>
+                </div>
+            </div>
+        </div>
+        <div class="icons">
+            <div class="fas fa-car">
+                <div class="content">
+                    <h3>150+</h3>
+                    <p>branches</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+<!-- icon section end -->
+
+
+
+<!-- vehicles section start -->
+    <section class="vehicles" id="vehicles">
+        <h1 class="heading"> All <span> vehicles</span></h1>
+
+        <div class="vehicles-slider">
+            <div class="wrapper">
+
+                <div class="box">
+                    <img src="cars_data/vehicle-9.png" alt="">
+                    <div class="content">
+                        <h3>New Model</h3>
+                        <div class="price"><span>price: </span> $65,000/-</div>
+                        <p> 
+                            <!-- specification list here  -->
+                            new 
+                            <span class="fas fa-circle"></span> 2021
+                            <span class="fas fa-circle"></span> automatic
+                            <span class="fas fa-circle"></span> petrol
+                            <span class="fas fa-circle"></span> 183mph
+                        </p>
+                        <a href="#" class="btn">check out</a>
+                    </div>
+                </div>
+
+                <div class="box">
+                    <img src="cars_data/vehicle-2.png" alt="">
+                    <div class="content">
+                        <h3>New Model</h3>
+                        <div class="price"><span>price: </span> $65,000/-</div>
+                        <p> 
+                            <!-- specification list here  -->
+                            new 
+                            <span class="fas fa-circle"></span> 2021
+                            <span class="fas fa-circle"></span> automatic
+                            <span class="fas fa-circle"></span> petrol
+                            <span class="fas fa-circle"></span> 183mph
+                        </p>
+                        <a href="#" class="btn">check out</a>
+                    </div>
+                </div>
+
+                <div class="box">
+                    <img src="cars_data/vehicle-1.png" alt="">
+                    <div class="content">
+                        <h3>New Model</h3>
+                        <div class="price"><span>price: </span> $65,000/-</div>
+                        <p> 
+                            <!-- specification list here  -->
+                            new 
+                            <span class="fas fa-circle"></span> 2021
+                            <span class="fas fa-circle"></span> automatic
+                            <span class="fas fa-circle"></span> petrol
+                            <span class="fas fa-circle"></span> 183mph
+                        </p>
+                        <a href="#" class="btn">check out</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </section>
+<!-- vehicles section end  -->
+
+    <script src="script.js"></script>
+</body>
+</html>
