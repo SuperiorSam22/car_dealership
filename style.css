@@ -350,7 +350,7 @@ section{
 
 /* meadia queries */
 
-@media(max-width:991px){
+@media(max-width:1080px){
 
     html{
         font-size: 55%;    

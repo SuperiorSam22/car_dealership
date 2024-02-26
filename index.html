@@ -4,6 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Car Dealership</title>
+    <link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="style.css">
 </head>
@@ -103,27 +106,10 @@
     <section class="vehicles" id="vehicles">
         <h1 class="heading"> All <span> vehicles</span></h1>
 
-        <div class="vehicles-slider">
-            <div class="wrapper">
+        <div class="swiper vehicles-slider">
+            <div class="swiper-wrapper">
 
-                <div class="box">
-                    <img src="cars_data/vehicle-2.png" alt="">
-                    <div class="content">
-                        <h3>New Model</h3>
-                        <div class="price"><span>price: </span> $65,000/-</div>
-                        <p> 
-                            <!-- specification list here  -->
-                            new 
-                            <span class="fas fa-circle"></span> 2021
-                            <span class="fas fa-circle"></span> automatic
-                            <span class="fas fa-circle"></span> petrol
-                            <span class="fas fa-circle"></span> 183mph
-                        </p>
-                        <a href="#" class="btn">check out</a>
-                    </div>
-                </div>
-
-                <div class="box">
+                <div class="swiper-slide box">
                     <img src="cars_data/vehicle-2.png" alt="">
                     <div class="content">
                         <h3>New Model</h3>
@@ -140,7 +126,7 @@
                     </div>
                 </div>
 
-                <div class="box">
+                <div class="swiper-slide box">
                     <img src="cars_data/vehicle-2.png" alt="">
                     <div class="content">
                         <h3>New Model</h3>
@@ -156,7 +142,8 @@
                         <a href="#" class="btn">check out</a>
                     </div>
                 </div>
-                <div class="box">
+
+                <div class="swiper-slide box">
                     <img src="cars_data/vehicle-2.png" alt="">
                     <div class="content">
                         <h3>New Model</h3>
@@ -172,7 +159,23 @@
                         <a href="#" class="btn">check out</a>
                     </div>
                 </div>
-                <div class="box">
+                <div class="swiper-slide box">
+                    <img src="cars_data/vehicle-2.png" alt="">
+                    <div class="content">
+                        <h3>New Model</h3>
+                        <div class="price"><span>price: </span> $65,000/-</div>
+                        <p> 
+                            <!-- specification list here  -->
+                            new 
+                            <span class="fas fa-circle"></span> 2021
+                            <span class="fas fa-circle"></span> automatic
+                            <span class="fas fa-circle"></span> petrol
+                            <span class="fas fa-circle"></span> 183mph
+                        </p>
+                        <a href="#" class="btn">check out</a>
+                    </div>
+                </div>
+                <div class="swiper-slide box">
                     <img src="cars_data/vehicle-2.png" alt="">
                     <div class="content">
                         <h3>New Model</h3>
@@ -189,11 +192,12 @@
                     </div>
                 </div>
             </div>
+            <div class="swiper-pagination"></div>
         </div>
 
     </section>
 <!-- vehicles section end  -->
-
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script src="script.js"></script>
 </body>
 </html>
