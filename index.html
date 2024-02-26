@@ -26,10 +26,18 @@
             <a href="#contact">contact</a>
         </nav>
 
-        <div id="login-btn">
-            <button class="btn">login</button>
-            <i class="far fa-user"></i>
+        <div class="user-btn">
+            <div id="login-btn">
+                        <button class="btn">login</button>
+                        <i class="far fa-user"></i>
+                    </div>
+                    <div id="signup-btn">
+                        <button class="btn">Signup</button>
+                        <!-- <i class="far fa-user"></i> -->
+                    </div>
         </div>
+        
+        
 
     </header>
     <!-- header section end -->
@@ -40,20 +48,38 @@
         <span class="fas fa-times" id="close-login-form"></span>
 
         <form action="">
-            <h3>user login</h3>
+            <h3>User Login</h3>
             <input type="email" placeholder="email" class="box" required>
             <input type="password" placeholder="password" class="box" required>
-            <p>forget your password <a href="#">click here</a></p>
+            <!-- <p>forget your password <a href="#">click here</a></p> -->
             <input type="submit" value="login now" class="btn">
-            <p>or login with</p>
+            <!-- <p>or login with</p>
             <div class="buttons">
                 <a href="#" class="btn">Google</a>
                 <a href="#" class="btn">Facebook</a>
-            </div>
+            </div> -->
             <p>don't have an account <a href="#">create one</a></p>
         </form>
     </div>
     <!-- login form ends -->
+
+
+    <!-- signup start -->
+    <div class="signup-form-container">
+
+        <span class="fas fa-times" id="close-signup-form"></span>
+
+        <form action="">
+            <h3>User SignUp</h3>
+            <input type="text" placeholder="Firstname" class="box" required>
+            <input type="text" placeholder="Lastname" class="box" required>
+            <input type="email" placeholder="email" class="box" required>
+            <input type="password" placeholder="password" class="box" required>
+            <input type="submit" value="Singup" class="btn">
+            <p>Already have an account? <a href="#">signin</a></p>
+        </form>
+    </div>
+    <!-- signup end -->
 
 
 
@@ -66,12 +92,12 @@
     <section class="home" id="home">
      <h1 class="home-parallax" data-speed="-2">Car Dealership</h1>   
     <img class="home-parallax" data-speed="5" src="cars_data/vehicle-8.png" alt="">
-    <a href="#" class="btn home-parallax" data-speed="7">explore and bid cars</a>
+    <a href="#featured" class="btn home-parallax" data-speed="7">explore and bid cars</a>
     </section>
 <!-- home section end -->
 
 <!-- icon section start  -->
-    <section class="icons-container">
+    <!-- <section class="icons-container">
         <div class="icons">
             <div class="fas fa-home">
                 <div class="content">
@@ -79,7 +105,7 @@
                     <p>branches</p>
                 </div>
             </div>
-        </div>
+        </div>  
         <div class="icons">
             <div class="fas fa-car">
                 <div class="content">
@@ -104,10 +130,9 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> -->
 
 <!-- icon section end -->
-
 
 
 <!-- vehicles section start -->
@@ -215,58 +240,67 @@
                 <div class="swiper-slide box">
                     <img src="cars_data/vehicle-2.png" alt="">
                     <h3>new model</h3>
-                    <div class="stars">
+                    <!-- <div class="stars">
                         <i class="fas fa-star"></i>
                         <i class="fas fa-star"></i>
                         <i class="fas fa-star"></i>
                         <i class="fas fa-star"></i>
                         <i class="fas fa-star-half-alt"></i>
-                    </div>
-                    <div class="price">$55,000</div>
-                    <a href="#" class="btn">check out</a>
+                    </div> -->
+                    <div class="price"><span>Start Bid:</span> $55,000</div>
+                    <span class="dollar">$</span>
+                    <input type="number" class="bid-btn" min="1" placeholder="place your bid amount">
+                    <a href="#" class="btn">Bid Now</a>
                 </div>
 
                 <div class="swiper-slide box">
                     <img src="cars_data/vehicle-2.png" alt="">
                     <h3>new model</h3>
-                    <div class="stars">
+                    <!-- <div class="stars">
                         <i class="fas fa-star"></i>
                         <i class="fas fa-star"></i>
                         <i class="fas fa-star"></i>
                         <i class="fas fa-star"></i>
                         <i class="fas fa-star-half-alt"></i>
-                    </div>
-                    <div class="price">$55,000</div>
-                    <a href="#" class="btn">check out</a>
+                    </div> -->
+                    <div class="price"><span>Start Bid:</span> $55,000</div>
+                    <span class="dollar">$</span>
+                    <input type="number" class="bid-btn" min="1" placeholder="place your bid amount">
+                    <a href="#" class="btn">Bid Now</a>
                 </div>
 
                 <div class="swiper-slide box">
                     <img src="cars_data/vehicle-2.png" alt="">
                     <h3>new model</h3>
-                    <div class="stars">
+                    <!-- <div class="stars">
                         <i class="fas fa-star"></i>
                         <i class="fas fa-star"></i>
                         <i class="fas fa-star"></i>
                         <i class="fas fa-star"></i>
                         <i class="fas fa-star-half-alt"></i>
-                    </div>
-                    <div class="price">$55,000</div>
-                    <a href="#" class="btn">check out</a>
+                    </div> -->
+                    <div class="price"><span>Start Bid:</span> $55,000</div>
+                    <span class="dollar">$</span>
+                    <input type="number" class="bid-btn" min="1" placeholder="place your bid amount">
+                    <a href="#" class="btn">Bid Now</a>
                 </div>
 
                 <div class="swiper-slide box">
                     <img src="cars_data/vehicle-2.png" alt="">
                     <h3>new model</h3>
-                    <div class="stars">
+                    <!-- <div class="stars">
                         <i class="fas fa-star"></i>
                         <i class="fas fa-star"></i>
                         <i class="fas fa-star"></i>
                         <i class="fas fa-star"></i>
                         <i class="fas fa-star-half-alt"></i>
-                    </div>
-                    <div class="price">$55,000</div>
-                    <a href="#" class="btn">check out</a>
+                    </div> -->
+                    <div class="price"><span>Start Bid:</span> $55,000</div>
+                    <span class="dollar">$</span>
+                    <input type="number" class="bid-btn" min="1" placeholder="place your bid amount">
+                    <a href="#" class="btn">Bid Now</a>
                 </div>
+                
             </div>
             <div class="swiper-pagination"></div>
         </div>
@@ -277,57 +311,65 @@
                 <div class="swiper-slide box">
                     <img src="cars_data/vehicle-2.png" alt="">
                     <h3>new model</h3>
-                    <div class="stars">
+                    <!-- <div class="stars">
                         <i class="fas fa-star"></i>
                         <i class="fas fa-star"></i>
                         <i class="fas fa-star"></i>
                         <i class="fas fa-star"></i>
                         <i class="fas fa-star-half-alt"></i>
-                    </div>
-                    <div class="price">$55,000</div>
-                    <a href="#" class="btn">check out</a>
+                    </div> -->
+                    <div class="price"><span>Start Bid:</span> $55,000</div>
+                    <span class="dollar">$</span>
+                    <input type="number" class="bid-btn" min="1" placeholder="place your bid amount">
+                    <a href="#" class="btn">Bid Now</a>
                 </div>
 
                 <div class="swiper-slide box">
                     <img src="cars_data/vehicle-2.png" alt="">
                     <h3>new model</h3>
-                    <div class="stars">
+                    <!-- <div class="stars">
                         <i class="fas fa-star"></i>
                         <i class="fas fa-star"></i>
                         <i class="fas fa-star"></i>
                         <i class="fas fa-star"></i>
                         <i class="fas fa-star-half-alt"></i>
-                    </div>
-                    <div class="price">$55,000</div>
-                    <a href="#" class="btn">check out</a>
+                    </div> -->
+                    <div class="price"><span>Start Bid:</span> $55,000</div>
+                    <span class="dollar">$</span>
+                    <input type="number" class="bid-btn" min="1" placeholder="place your bid amount">
+                    <a href="#" class="btn">Bid Now</a>
                 </div>
 
                 <div class="swiper-slide box">
                     <img src="cars_data/vehicle-2.png" alt="">
                     <h3>new model</h3>
-                    <div class="stars">
+                    <!-- <div class="stars">
                         <i class="fas fa-star"></i>
                         <i class="fas fa-star"></i>
                         <i class="fas fa-star"></i>
                         <i class="fas fa-star"></i>
                         <i class="fas fa-star-half-alt"></i>
-                    </div>
-                    <div class="price">$55,000</div>
-                    <a href="#" class="btn">check out</a>
+                    </div> -->
+                    <div class="price"><span>Start Bid:</span> $55,000</div>
+                    <span class="dollar">$</span>
+                    <input type="number" class="bid-btn" min="1" placeholder="place your bid amount">
+                    <a href="#" class="btn">Bid Now</a>
                 </div>
 
                 <div class="swiper-slide box">
                     <img src="cars_data/vehicle-2.png" alt="">
                     <h3>new model</h3>
-                    <div class="stars">
+                    <!-- <div class="stars">
                         <i class="fas fa-star"></i>
                         <i class="fas fa-star"></i>
                         <i class="fas fa-star"></i>
                         <i class="fas fa-star"></i>
                         <i class="fas fa-star-half-alt"></i>
-                    </div>
-                    <div class="price">$55,000</div>
-                    <a href="#" class="btn">check out</a>
+                    </div> -->
+                    <div class="price"><span>Start Bid:</span> $55,000</div>
+                    <span class="dollar">$</span>
+                    <input type="number" class="bid-btn" min="1" placeholder="place your bid amount">
+                    <a href="#" class="btn">Bid Now</a>
                 </div>
             </div>
             <div class="swiper-pagination"></div>

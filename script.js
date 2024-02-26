@@ -19,6 +19,17 @@ document.querySelector('#close-login-form').onclick = () => {
     document.querySelector('.login-form-container').classList.remove('active');
 }
 
+
+document.querySelector('#signup-btn').onclick = () => {
+    document.querySelector('.signup-form-container').classList.toggle('active');
+}
+
+document.querySelector('#close-signup-form').onclick = () => {
+    document.querySelector('.signup-form-container').classList.remove('active');
+}
+
+
+
 window.onscroll = () =>{
 
     if(window.scrollY > 0){
@@ -90,13 +101,9 @@ var swiper = new Swiper(".vehicles-slider", {
   var swiper = new Swiper(".featured-slider", {
     slidesPerView: 1,
     spaceBetween: 20,
-    loop:true,
+    loop:false,
     grabCursor:true,
-    centeredSlides:true,
-    autoplay: {
-        delay: 9500,
-        disableOnInteraction: false,
-      },
+    centeredSlides:false,
     pagination: {
       el: ".swiper-pagination",
       clickable: true,
