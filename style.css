@@ -214,6 +214,9 @@ section{
     cursor: pointer;
 }
 
+
+
+
 .home {
     padding-top: 10rem;
     text-align: center;
@@ -299,13 +302,22 @@ section{
 
 .vehicles .vehicles-slider .box img{
     width: 100%;
-    /* opacity: .5 ;
-    transform: scale(.8); */
+    opacity: .5 ;
+    transform: scale(.8);
 }
 
 .vehicles .vehicles-slider .box .content{
-    transform: scale(1);
+    transform: scale(0);
     padding-top: 1rem;
+}
+
+.vehicles .vehicles-slider .swiper-slide-active img{
+    opacity: 1;
+    transform: scale(1);
+}
+
+.vehicles .vehicles-slider .swiper-slide-active .content{
+    transform: scale(1);
 }
 
 .vehicles .vehicles-slider .box .content h3{
@@ -340,6 +352,68 @@ section{
     padding: 0 .5rem;
 }
 
+.swiper-pagination-bullet-active {
+    background: var(--yellow);
+}
+
+.featured .featured-slider{
+    padding: 1rem;
+    padding-bottom: 4rem;
+
+}
+
+.featured .featured-slider .box{
+    text-align: center;
+    padding: 2rem;
+    box-shadow: var(--box-shadow);
+    border: var(--border);
+    border-radius: .5rem;
+}
+
+.featured .featured-slider .box img{
+    /* height: 13rem; */
+    width: 100%;
+    padding:2rem;
+
+}
+.featured .featured-slider .box img{
+    transform:scale(.9);
+    
+}
+
+.featured .featured-slider .box h3{
+    font-size: 2.2rem;
+    color: var(--black);
+}
+
+.featured .featured-slider .box .stars{
+    padding: 1rem 0;
+}
+
+
+.featured .featured-slider .box .stars i{
+    font-size: 1.7rem;
+    color: var(--yellow);
+}
+.featured .featured-slider .box .price {
+    font-size: 2.5rem;
+    color: var(--black);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -350,7 +424,7 @@ section{
 
 /* meadia queries */
 
-@media(max-width:1080px){
+@media(max-width:991){
 
     html{
         font-size: 55%;    
@@ -407,5 +481,9 @@ section{
 
     html{
         font-size: 50%;    
+    }
+
+    .heading{
+        font-size: 3rem;
     }
 }
