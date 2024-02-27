@@ -128,11 +128,11 @@ var swiper = new Swiper(".vehicles-slider", {
     event.preventDefault(); // Prevent default form submission
 
     // Gather user input
-    var email = document.querySelector('.login-form-container input[type="email"]').value;
-    var password = document.querySelector('.login-form-container input[type="password"]').value;
+    let email = document.querySelector('.login-form-container input[type="email"]').value;
+    let password = document.querySelector('.login-form-container input[type="password"]').value;
 
     // Construct the request body
-    var requestBody = {
+    let requestBody = {
         email: email,
         password: password
     };
@@ -230,10 +230,10 @@ document.getElementById('signupForm').addEventListener('submit', function (event
 
 
 // fetching car specification from the backend api start //
-var apiEndpoint = 'http://localhost:8080/getAllCar';
+let apiEndpoint = 'http://localhost:8080/getAllCar';
 
     // Get the swiperWrapper element
-    var swiperWrapper = document.getElementById('swiperWrapper');
+    let swiperWrapper = document.getElementById('swiperWrapper');
 
     // Fetch data from the backend API
     fetch(apiEndpoint)
@@ -241,14 +241,14 @@ var apiEndpoint = 'http://localhost:8080/getAllCar';
         .then(data => {
             // Loop through the fetched data and create car slides
             data.forEach(carData => {
-                var carSlide = document.createElement('div');
+                let carSlide = document.createElement('div');
                 carSlide.classList.add('swiper-slide', 'box');
 
                 carSlide.innerHTML = `
                     <img src="cars_data/vehicle-${carData.image}.png" alt="">
                     <div class="content">
                         <h3>${carData.carname}</h3>
-                        <div class="price"><span>price: </span> $${carData.price}/-</div>
+                        <div class="price"><span>price: </span> ₹${carData.price}/-</div>
                         <p> 
                             new 
                             <span class="fas fa-circle"></span> ${carData.engineCapacity}cc
@@ -268,11 +268,76 @@ var apiEndpoint = 'http://localhost:8080/getAllCar';
 
 
 //price slider 
-let priceSlider = document.getElementById('price');
-let selectedPriceSpan = document.getElementById('selectedPrice');
+// let priceSlider = document.getElementById('price');
+// let selectedPriceSpan = document.getElementById('selectedPrice');
 
-// Update the displayed price when the slider value changes
-priceSlider.addEventListener('input', function() {
-    var selectedPrice = this.value;
-    selectedPriceSpan.textContent = selectedPrice;
-});
+// // Update the displayed price when the slider value changes
+// priceSlider.addEventListener('input', function() {
+//     var selectedPrice = this.value;
+//     selectedPriceSpan.textContent = selectedPrice;
+// });
+
+
+
+//add cars dynamically to the auction list 
+// let apiEnd = 'http://localhost:8080/getAllCar';
+
+// // Get the swiperWrapper element
+// let swiperWrapper1 = document.getElementById('carList1');
+
+// // Fetch data from the backend API
+// fetch(apiEnd)
+//     .then(response => response.json())
+//     .then(data => {
+//         // Loop through the fetched data and create car slides
+//         data.forEach(carData => {
+//             let carSlide = document.createElement('div');
+//             carSlide.classList.add('swiper-slide', 'box');
+
+//             carSlide.innerHTML = `
+//                 <img src="cars_data/vehicle-${carData.image}.png" alt="">
+//                 <h3>${carData.carname}</h3>
+//                 <div class="price"><span>Start Bid:</span> $${carData.price}</div>
+//                 <span class="dollar">$</span>
+//                 <input type="number" class="bid-input" min="1" placeholder="place your bid amount">
+//                 <a href="#" class="btn">Bid Now</a>
+//             `;
+
+//             swiperWrapper1.appendChild(carSlide);
+//         });
+//     })
+//     .catch(error => {
+//         console.error('Error fetching data:', error);
+//     });
+
+
+    //add cars dynamically to the auction list 
+
+// Get the swiperWrapper element
+// let swiperWrapper2 = document.getElementById('carList2');
+
+// // Fetch data from the backend API
+// fetch(apiEnd)
+//     .then(response => response.json())
+//     .then(data => {
+//         // Loop through the fetched data and create car slides
+//         data.forEach(carData => {
+//             let carSlide = document.createElement('div');
+//             carSlide.classList.add('swiper-slide', 'box');
+
+//             carSlide.innerHTML = `
+//                 <img src="cars_data/vehicle-${carData.image}.png" alt="">
+//                 <h3>${carData.carname}</h3>
+//                 <div class="price"><span>Start Bid:</span> $${carData.price}</div>
+//                 <span class="dollar">$</span>
+//                 <input type="number" class="bid-input" min="1" placeholder="place your bid amount">
+//                 <a href="#" class="btn">Bid Now</a>
+//             `;
+
+//             swiperWrapper2.appendChild(carSlide);
+//         });
+//     })
+//     .catch(error => {
+//         console.error('Error fetching data:', error);
+//     });
+
