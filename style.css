@@ -493,8 +493,8 @@ section{
     color: var(--black);
 }
 
-.featured .featured-slider .box .bid-btn {
-    background:#eeeeee;
+.featured .featured-slider .box .bid-input {
+    background:#c7c7c7;
     border-radius: .8rem;
     padding: 1rem 9rem;
     font-size: 15px;
