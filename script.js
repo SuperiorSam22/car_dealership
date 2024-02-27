@@ -121,3 +121,158 @@ var swiper = new Swiper(".vehicles-slider", {
     },
   });
 
+
+
+  //login form submission start 
+  document.getElementById('loginForm').addEventListener('submit', function (event) {
+    event.preventDefault(); // Prevent default form submission
+
+    // Gather user input
+    var email = document.querySelector('.login-form-container input[type="email"]').value;
+    var password = document.querySelector('.login-form-container input[type="password"]').value;
+
+    // Construct the request body
+    var requestBody = {
+        email: email,
+        password: password
+    };
+
+    // Make a fetch request to your backend
+    fetch('/login', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(requestBody)
+    })
+    .then(response => response.json())
+    .then(data => {
+        // Assuming the backend returns a response with a success flag
+        if (data.success) {
+            // Redirect to the signed-in page or perform any necessary actions
+            window.location.href = '/signed-in-page';
+        } else {
+            // Handle unsuccessful login (show an error message, etc.)
+            console.error('Login failed. Check credentials.');
+        }
+    })
+    .catch(error => {
+        console.error('Error during login:', error);
+    });
+});
+//login form submission end 
+
+
+
+
+
+
+
+
+
+
+
+
+
+//signup form submission start 
+document.getElementById('signupForm').addEventListener('submit', function (event) {
+    event.preventDefault(); // Prevent default form submission
+
+    // Gather user input
+    let firstName = document.querySelector('.signup-form-container input[placeholder="Firstname"]').value;
+    let lastName = document.querySelector('.signup-form-container input[placeholder="Lastname"]').value;
+    let email = document.querySelector('.signup-form-container input[type="email"]').value;
+    let password = document.querySelector('.signup-form-container input[type="password"]').value;
+
+    // Construct the request body
+    let requestBody = {
+        firstName: firstName,
+        lastName: lastName,
+        email: email,
+        password: password
+    };
+
+    // Make a fetch request to your backend
+    fetch('/signup', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(requestBody)
+    })
+    .then(response => response.json())
+    .then(data => {
+        // Assuming the backend returns a response with a success flag
+        if (data.success) {
+            // Redirect to the signed-in page or perform any necessary actions
+            window.location.href = '/signed-in-page';
+        } else {
+            // Handle unsuccessful signup (show an error message, etc.)
+            console.error('Signup failed. Check input and try again.');
+        }
+    })
+    .catch(error => {
+        console.error('Error during signup:', error);
+    });
+});
+
+//signup form submission end
+
+
+
+
+
+
+
+
+
+
+
+
+// fetching car specification from the backend api start //
+var apiEndpoint = 'http://localhost:8080/getAllCar';
+
+    // Get the swiperWrapper element
+    var swiperWrapper = document.getElementById('swiperWrapper');
+
+    // Fetch data from the backend API
+    fetch(apiEndpoint)
+        .then(response => response.json())
+        .then(data => {
+            // Loop through the fetched data and create car slides
+            data.forEach(carData => {
+                var carSlide = document.createElement('div');
+                carSlide.classList.add('swiper-slide', 'box');
+
+                carSlide.innerHTML = `
+                    <img src="cars_data/vehicle-${carData.image}.png" alt="">
+                    <div class="content">
+                        <h3>${carData.carname}</h3>
+                        <div class="price"><span>price: </span> $${carData.price}/-</div>
+                        <p> 
+                            new 
+                            <span class="fas fa-circle"></span> ${carData.engineCapacity}cc
+                            <span class="fas fa-circle"></span> ${carData.fueltype}
+                        </p>
+                    </div>
+                `;
+
+                swiperWrapper.appendChild(carSlide);
+            });
+        })
+        .catch(error => {
+            console.error('Error fetching data:', error);
+        });
+//fetching car specification from the backend api end //
+
+
+
+//price slider 
+let priceSlider = document.getElementById('price');
+let selectedPriceSpan = document.getElementById('selectedPrice');
+
+// Update the displayed price when the slider value changes
+priceSlider.addEventListener('input', function() {
+    var selectedPrice = this.value;
+    selectedPriceSpan.textContent = selectedPrice;
+});

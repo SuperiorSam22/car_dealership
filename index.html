@@ -17,7 +17,7 @@
 
         <div id="menu-btn" class="fas fa-bars"></div>
 
-        <a href="#" class="logo"><span>Car</span>Dealership</a>
+        <a href="#" class="logo"><span>4</span>Wheels</a>
 
         <nav class="navbar">
             <a href="#home">home</a>
@@ -47,7 +47,7 @@
 
         <span class="fas fa-times" id="close-login-form"></span>
 
-        <form action="">
+        <form action="/login" method="post" id="loginForm">
             <h3>User Login</h3>
             <input type="email" placeholder="email" class="box" required>
             <input type="password" placeholder="password" class="box" required>
@@ -69,13 +69,13 @@
 
         <span class="fas fa-times" id="close-signup-form"></span>
 
-        <form action="">
+        <form action="/signup" method="post" id="signupForm">
             <h3>User SignUp</h3>
             <input type="text" placeholder="Firstname" class="box" required>
             <input type="text" placeholder="Lastname" class="box" required>
             <input type="email" placeholder="email" class="box" required>
             <input type="password" placeholder="password" class="box" required>
-            <input type="submit" value="Singup" class="btn">
+            <input type="submit" value="signup" class="btn">
             <p>Already have an account? <a href="#">signin</a></p>
         </form>
     </div>
@@ -140,9 +140,9 @@
         <h1 class="heading"> All <span> vehicles</span></h1>
 
         <div class="swiper vehicles-slider">
-            <div class="swiper-wrapper">
+            <div class="swiper-wrapper" id="swiperWrapper">
 
-                <div class="swiper-slide box">
+                <div class="swiper-slide box" id="carSlide">
                     <img src="cars_data/vehicle-2.png" alt="">
                     <div class="content">
                         <h3>New Model</h3>
@@ -155,24 +155,7 @@
                             <span class="fas fa-circle"></span> petrol
                             <span class="fas fa-circle"></span> 183mph
                         </p>
-                        <a href="#" class="btn">check out</a>
-                    </div>
-                </div>
-
-                <div class="swiper-slide box">
-                    <img src="cars_data/vehicle-2.png" alt="">
-                    <div class="content">
-                        <h3>New Model</h3>
-                        <div class="price"><span>price: </span> $65,000/-</div>
-                        <p> 
-                            <!-- specification list here  -->
-                            new 
-                            <span class="fas fa-circle"></span> 2021
-                            <span class="fas fa-circle"></span> automatic
-                            <span class="fas fa-circle"></span> petrol
-                            <span class="fas fa-circle"></span> 183mph
-                        </p>
-                        <a href="#" class="btn">check out</a>
+                        <!-- <a href="#" class="btn">check out</a> -->
                     </div>
                 </div>
 
@@ -189,7 +172,24 @@
                             <span class="fas fa-circle"></span> petrol
                             <span class="fas fa-circle"></span> 183mph
                         </p>
-                        <a href="#" class="btn">check out</a>
+                        <!-- <a href="#" class="btn">check out</a> -->
+                    </div>
+                </div>
+
+                <div class="swiper-slide box">
+                    <img src="cars_data/vehicle-2.png" alt="">
+                    <div class="content">
+                        <h3>New Model</h3>
+                        <div class="price"><span>price: </span> $65,000/-</div>
+                        <p> 
+                            <!-- specification list here  -->
+                            new 
+                            <span class="fas fa-circle"></span> 2021
+                            <span class="fas fa-circle"></span> automatic
+                            <span class="fas fa-circle"></span> petrol
+                            <span class="fas fa-circle"></span> 183mph
+                        </p>
+                        <!-- <a href="#" class="btn">check out</a> -->
                     </div>
                 </div>
                 <div class="swiper-slide box">
@@ -205,7 +205,7 @@
                             <span class="fas fa-circle"></span> petrol
                             <span class="fas fa-circle"></span> 183mph
                         </p>
-                        <a href="#" class="btn">check out</a>
+                        <!-- <a href="#" class="btn">check out</a> -->
                     </div>
                 </div>
                 <div class="swiper-slide box">
@@ -221,7 +221,7 @@
                             <span class="fas fa-circle"></span> petrol
                             <span class="fas fa-circle"></span> 183mph
                         </p>
-                        <a href="#" class="btn">check out</a>
+                        <!-- <a href="#" class="btn">check out</a> -->
                     </div>
                 </div>
             </div>
@@ -234,22 +234,51 @@
 <!-- Auction section start -->
     <section class="featured" id="featured">
         <h1 class="heading"><span>Auction</span> cars</h1>
+
+        <!-- <div class="select-fil">
+            <label for="filter">Select Filter:</label>
+            <select id="filter">
+            <option value="option1">Petrol</option>
+            <option value="option2">Diesel</option>
+        Add more options as needed
+        </select>
+        </div>
+         -->
+
+        <!-- price slider -->
+        <!-- <div class="price-slider"> 
+            <label for="price">Price Range:</label>
+            <input type="range" id="price" name="price" min="5000" max="500000" step="1000" value="500">
+            <p>Selected Price: $<span id="selectedPrice">500</span></p>
+
+        </div> -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         <div class="swiper featured-slider">
             <div class="swiper-wrapper">
                 
                 <div class="swiper-slide box">
                     <img src="cars_data/vehicle-2.png" alt="">
                     <h3>new model</h3>
-                    <!-- <div class="stars">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star-half-alt"></i>
-                    </div> -->
+                
                     <div class="price"><span>Start Bid:</span> $55,000</div>
                     <span class="dollar">$</span>
-                    <input type="number" class="bid-btn" min="1" placeholder="place your bid amount">
+                    <input type="number" class="bid-input" min="1" placeholder="place your bid amount">
                     <a href="#" class="btn">Bid Now</a>
                 </div>
 
@@ -265,7 +294,7 @@
                     </div> -->
                     <div class="price"><span>Start Bid:</span> $55,000</div>
                     <span class="dollar">$</span>
-                    <input type="number" class="bid-btn" min="1" placeholder="place your bid amount">
+                    <input type="number" class="bid-input" min="1" placeholder="place your bid amount">
                     <a href="#" class="btn">Bid Now</a>
                 </div>
 
@@ -281,7 +310,7 @@
                     </div> -->
                     <div class="price"><span>Start Bid:</span> $55,000</div>
                     <span class="dollar">$</span>
-                    <input type="number" class="bid-btn" min="1" placeholder="place your bid amount">
+                    <input type="number" class="bid-input" min="1" placeholder="place your bid amount">
                     <a href="#" class="btn">Bid Now</a>
                 </div>
 
