@@ -279,51 +279,118 @@ let apiEndpoint = 'http://localhost:8080/getAllCar';
 
 
 
-//add cars dynamically to the auction list 
-let apiEnd = 'http://localhost:8080/getAllCar';
+// //add cars dynamically to the auction list 
+// let apiEnd = 'http://localhost:8080/getAllCar';
 
-// Get the swiperWrapper element
-let swiperWrapper1 = document.getElementById('carList1');
-let swiperWrapper2 = document.getElementById('carList2');
+// // Get the swiperWrapper element
+// let swiperWrapper1 = document.getElementById('carList1');
+// let swiperWrapper2 = document.getElementById('carList2');
 
-// Fetch data from the backend API
-fetch(apiEnd)
-    .then(response => response.json())
-    .then(data => {
-        // Loop through the fetched data and create car slides
-        data.forEach(carData => {
-            let carSlide = document.createElement('div');
-            let carSlide2 = document.createElement('div');
-            carSlide.classList.add('swiper-slide', 'box');
-            carSlide2.classList.add('swiper-slide', 'box');
+// // Fetch data from the backend API
+// fetch(apiEnd)
+//     .then(response => response.json())
+//     .then(data => {
+//         // Loop through the fetched data and create car slides
+//         data.forEach(carData => {
+//             let carSlide = document.createElement('div');
+//             let carSlide2 = document.createElement('div');
+//             carSlide.classList.add('swiper-slide', 'box');
+//             carSlide2.classList.add('swiper-slide', 'box');
 
-            carSlide.innerHTML = `
-                <img src="cars_data/vehicle-${carData.image}.png" alt="">
-                <h3>${carData.carname}</h3>
-                <div class="price"><span>Start Bid:</span> $${carData.price}</div>
-                <span class="dollar">$</span>
-                <input type="number" class="bid-input" min="1" placeholder="place your bid amount">
-                <a href="#" class="btn">Bid Now</a>
-            `;
-            carSlide2.innerHTML = `
-                <img src="cars_data/vehicle-${carData.image}.png" alt="">
-                <h3>${carData.carname}</h3>
-                <div class="price"><span>Start Bid:</span> $${carData.price}</div>
-                <span class="dollar">$</span>
-                <input type="number" class="bid-input" min="1" placeholder="place your bid amount">
-                <a href="#" class="btn">Bid Now</a>
-            `;
+//             carSlide.innerHTML = `
+//                 <img src="cars_data/vehicle-${carData.image}.png" alt="">
+//                 <h3>${carData.carname}</h3>
+//                 <div class="price"><span>Start Bid:</span> $${carData.price}</div>
+//                 <span class="dollar">$</span>
+//                 <input type="number" class="bid-input" min="1" placeholder="place your bid amount">
+//                 <a href="#" class="btn">Bid Now</a>
+//             `;
+//             carSlide2.innerHTML = `
+//                 <img src="cars_data/vehicle-${carData.image}.png" alt="">
+//                 <h3>${carData.carname}</h3>
+//                 <div class="price"><span>Start Bid:</span> $${carData.price}</div>
+//                 <span class="dollar">$</span>
+//                 <input type="number" class="bid-input" min="1" placeholder="place your bid amount">
+//                 <a href="#" class="btn">Bid Now</a>
+//             `;
 
-            swiperWrapper1.appendChild(carSlide);
-            swiperWrapper2.appendChild(carSlide2);
-        });
-    })
-    .catch(error => {
-        console.error('Error fetching data:', error);
-    });
-
-
+//             swiperWrapper1.appendChild(carSlide);
+//             swiperWrapper2.appendChild(carSlide2);
+//         });
+//     })
+//     .catch(error => {
+//         console.error('Error fetching data:', error);
+//     });
     //add cars dynamically to the auction list 
+
+    let apiEnd = 'http://localhost:8080/getAllCar';
+
+    // Get the swiperWrapper element
+    let swiperWrapper1 = document.getElementById('carList1');
+    
+    // Fetch data from the backend API
+    fetch(apiEnd)
+        .then(response => response.json())
+        .then(data => {
+            // Loop through the fetched data and create car slides
+            data.slice(0,4).forEach(carData => {
+                let carSlide = document.createElement('div');
+                
+                carSlide.classList.add('swiper-slide', 'box');
+    
+                carSlide.innerHTML = `
+                    <img src="cars_data/vehicle-${carData.image}.png" alt="">
+                    <h3>${carData.carname}</h3>
+                    <div class="price"><span>Start Bid:</span> $${carData.price}</div>
+                    <span class="dollar">$</span>
+                    <input type="number" class="bid-input" min="1" placeholder="place your bid amount">
+                    <a href="#" class="btn">Bid Now</a>
+                `;
+                
+    
+                swiperWrapper1.appendChild(carSlide);
+            });
+        })
+        .catch(error => {
+            console.error('Error fetching data:', error);
+        });
+    
+        
+
+        // Get the swiperWrapper element
+        let swiperWrapper2 = document.getElementById('carList2');
+        
+        // Fetch data from the backend API
+        fetch(apiEnd)
+            .then(response => response.json())
+            .then(data => {
+                // Loop through the fetched data and create car slides
+                data.slice(5,8).forEach(carData => {
+                    let carSlide = document.createElement('div');
+                    
+                    carSlide.classList.add('swiper-slide', 'box');
+        
+                    carSlide.innerHTML = `
+                        <img src="cars_data/vehicle-${carData.image}.png" alt="">
+                        <h3>${carData.carname}</h3>
+                        <div class="price"><span>Start Bid:</span> $${carData.price}</div>
+                        <span class="dollar">$</span>
+                        <input type="number" class="bid-input" min="1" placeholder="place your bid amount">
+                        <a href="#" class="btn">Bid Now</a>
+                    `;
+                    
+        
+                    swiperWrapper2.appendChild(carSlide);
+                });
+            })
+            .catch(error => {
+                console.error('Error fetching data:', error);
+            });    
+
+
+
+
+
 
 // Get the swiperWrapper element
 // let swiperWrapper2 = document.getElementById('carList2');

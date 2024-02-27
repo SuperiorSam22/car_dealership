@@ -408,6 +408,7 @@ section{
 .vehicles .vehicles-slider .swiper-slide-active img{
     opacity: 1;
     transform: scale(1);
+    
 }
 
 .vehicles .vehicles-slider .swiper-slide-active .content{
@@ -468,7 +469,8 @@ section{
     /* height: 13rem; */
     width: 100%;
     padding:2rem;
-
+    object-fit: cover;
+    
 }
 .featured .featured-slider .box img{
     transform:scale(.9);
@@ -495,7 +497,7 @@ section{
 }
 
 .featured .featured-slider .box .bid-input {
-    background:#c7c7c7;
+    background:#e3e3e3;
     border-radius: .8rem;
     padding: 1rem 9rem;
     font-size: 15px;
