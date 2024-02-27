@@ -264,3 +264,15 @@ var apiEndpoint = 'http://localhost:8080/getAllCar';
             console.error('Error fetching data:', error);
         });
 //fetching car specification from the backend api end //
+
+
+
+//price slider 
+let priceSlider = document.getElementById('price');
+let selectedPriceSpan = document.getElementById('selectedPrice');
+
+// Update the displayed price when the slider value changes
+priceSlider.addEventListener('input', function() {
+    var selectedPrice = this.value;
+    selectedPriceSpan.textContent = selectedPrice;
+});
