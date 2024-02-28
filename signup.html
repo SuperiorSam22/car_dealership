@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Car Dealership</title>
+    <link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="signup.css">
+</head>
+<body>
+
+    <!-- header section  -->
+    <header class="header">
+
+        <div id="menu-btn" class="fas fa-bars"></div>
+
+        <a href="" class="logo"><span>FOUR</span>Wheels</a>
+
+        <div class="user-btn">
+            <div id="reg-btn">
+                        <button class="btn">Signup</button>
+                    </div>
+                   
+        </div>
+        
+        
+
+    </header>
+    <!-- header section end -->
+
+    <!-- Signup form -->
+    <div class="reg-form-container">
+
+        <span class="fas fa-times" id="close-reg-form"></span>
+
+        <form action="/login" method="post" id="loginForm">
+            <h3>User SignUp</h3>
+            <input type="text" placeholder="Firstname" class="box" required>
+            <input type="text" placeholder="Lastname" class="box" required>
+            <input type="email" placeholder="email" class="box" required>
+            <input type="password" placeholder="password" class="box" required>
+            <input type="submit" value="signup" class="btn">
+            <p>Already have an account? <a href="/login.html">signin</a></p>     
+        </form>
+    </div>
+    <!-- Signup form ends -->
+
+
+<!-- home section -->
+    <section class="home" id="home">
+        
+     <h1 class="home-parallax" data-speed="2">Four Wheels Dealership</h1>   
+    <img class="home-parallax" data-speed="5" src="homepage.png" alt="">
+    </section>
+<!-- home section end -->
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="signup.js"></script>
+</body>
+</html>

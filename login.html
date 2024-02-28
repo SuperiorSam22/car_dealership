@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Car Dealership</title>
+    <link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="login.css">
+</head>
+<body>
+
+    <!-- header section  -->
+    <header class="header">
+
+        <div id="menu-btn" class="fas fa-bars"></div>
+
+        <a href="" class="logo"><span>FOUR</span>Wheels</a>
+
+        <div class="user-btn">
+            <div id="login-btn">
+                        <button class="btn">login</button>
+                        <i class="far fa-user"></i>
+                    </div>
+        </div>
+        
+        
+
+    </header>
+    <!-- header section end -->
+
+    <!-- login form -->
+    <div class="login-form-container">
+
+        <span class="fas fa-times" id="close-login-form"></span>
+
+        <form action="/login" method="post" id="loginForm">
+            <h3>User Login</h3>
+            <input type="email" placeholder="email" class="box" name="email" required>
+            <input type="password" placeholder="password" class="box" name="password" required>
+            <input type="submit" value="login now" class="btn">
+            <p>don't have an account <a href="/signup.html">create one</a></p>
+        </form>
+    </div>
+    <!-- login form ends -->
+
+<!-- home section -->
+    <section class="home" id="home">
+        
+     <h1 class="home-parallax" data-speed="2">Four Wheels Dealership</h1>   
+    <img class="home-parallax" data-speed="5" src="homepage.png" alt="">
+    </section>
+<!-- home section end -->
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="login.js"></script>
+</body>
+</html>
