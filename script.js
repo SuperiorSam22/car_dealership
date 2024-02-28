@@ -1,4 +1,4 @@
-let apiEndpoint = 'http://localhost:8080/getAllCar';
+let apiEndpoint = 'http://localhost:8090/Auction/getAllCar';
 
 
 let menu = document.querySelector("#menu-btn");
@@ -329,26 +329,26 @@ var swiper = new Swiper(".vehicles-slider", {
 
 
 
-// //to send bid amount on clicking the bid now button (waiting on backend api data to be completed)
-// document.addEventListener("DOMContentLoaded", function () {
-//     const bidInput = document.querySelector(".bid-input");
-//     const bidBtn = document.querySelector(".btn");
-//     const startBid = 55000; // Replace with the actual starting bid
+//to send bid amount on clicking the bid now button (waiting on backend api data to be completed)
+document.addEventListener("DOMContentLoaded", function () {
+    const bidInput = document.querySelector(".bid-input");
+    const bidBtn = document.querySelector(".btn");
+    const startBid = 55000; // Replace with the actual starting bid
 
-//     bidBtn.addEventListener("click", function (event) {
-//         event.preventDefault();
+    bidBtn.addEventListener("click", function (event) {
+        event.preventDefault();
 
-//         // Validate bid input
-//         const bidAmount = parseFloat(bidInput.value);
-//         if (bidAmount >= startBid) {
-//             // Send bid amount to the backend (replace this with your backend logic)
-//             console.log("Bid amount:", bidAmount);
-//             // Here you can make an AJAX or fetch request to send bidAmount to the backend
-//         } else {
-//             alert("Bid amount must be greater than or equal to the current bid.");
-//         }
-//     });
-// });
+        // Validate bid input
+        const bidAmount = parseFloat(bidInput.value);
+        if (bidAmount >= startBid) {
+            // Send bid amount to the backend (replace this with your backend logic)
+            // http://localhost:8090/Bid/bid?&name=Alpha Romeo &id=1&price=9990000
+            // Here you can make an AJAX or fetch request to send bidAmount to the backend
+        } else {
+            alert("Bid amount must be greater than or equal to the current bid.");
+        }
+    });
+});
 
 
 //timer countdown

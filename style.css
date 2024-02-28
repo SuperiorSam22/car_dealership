@@ -530,7 +530,14 @@ section{
     font-weight: bold;
 }
 
+.footer {
+    background-color: var(--black);
+}
 
+.footer h5, h3{
+    color: white;
+    text-align: start;
+}
 
 /* meadia queries */
 
