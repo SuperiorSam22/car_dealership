@@ -14,22 +14,22 @@ menu.onclick = ()=>{
     navbar.classList.toggle('active');
 }
 
-document.querySelector('#login-btn').onclick = () => {
-    document.querySelector('.login-form-container').classList.toggle('active');
-}
+// document.querySelector('#login-btn').onclick = () => {
+//     document.querySelector('.login-form-container').classList.toggle('active');
+// }
 
-document.querySelector('#close-login-form').onclick = () => {
-    document.querySelector('.login-form-container').classList.remove('active');
-}
+// document.querySelector('#close-login-form').onclick = () => {
+//     document.querySelector('.login-form-container').classList.remove('active');
+// }
 
 
-document.querySelector('#signup-btn').onclick = () => {
-    document.querySelector('.signup-form-container').classList.toggle('active');
-}
+// document.querySelector('#signup-btn').onclick = () => {
+//     document.querySelector('.signup-form-container').classList.toggle('active');
+// }
 
-document.querySelector('#close-signup-form').onclick = () => {
-    document.querySelector('.signup-form-container').classList.remove('active');
-}
+// document.querySelector('#close-signup-form').onclick = () => {
+//     document.querySelector('.signup-form-container').classList.remove('active');
+// }
 
 
 
@@ -302,7 +302,7 @@ var swiper = new Swiper(".vehicles-slider", {
             .then(response => response.json())
             .then(data => {
                 // Loop through the fetched data and create car slides
-                data.slice(5,8).forEach(carData => {
+                data.slice(4,8).forEach(carData => {
                     let carSlide = document.createElement('div');
                     
                     carSlide.classList.add('swiper-slide', 'box');

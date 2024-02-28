@@ -153,11 +153,12 @@ section{
 }
 
 .user-btn {
-    display: flex;
+    display: none;
 }
 .user-btn #login-btn button{
     margin-right: 1rem;
-}
+    display: none;
+}   
 
 .login-form-container{
     position: fixed;
@@ -167,7 +168,7 @@ section{
     height: 100%;
     width: 100%;
     background: rgba(255,255,255,.8);
-    display: flex;
+    display: none;
     align-items: center;
     justify-content: center;
     opacity: 0;
@@ -254,7 +255,7 @@ section{
     height: 100%;
     width: 100%;
     background: rgba(255,255,255,.8);
-    display: flex;
+    display: none;
     align-items: center;
     justify-content: center;
     opacity: 0;
@@ -547,6 +548,10 @@ section{
     section{
         padding: 2rem;
     }
+    .swiper-slide .box .bid-input{
+        padding: 1rem 4rem;
+    }
+
     
 }
 
@@ -563,6 +568,7 @@ section{
     .header #login-btn .btn{
         display: none;
     }
+
 
     .header .navbar{
         position: absolute;
@@ -584,6 +590,10 @@ section{
         margin: 2rem;
         font-size: 2rem;
 
+    }
+
+    .swiper-slide .box .bid-input{
+        padding: 1rem 2rem;
     }
 }
 @media(max-width:450px){
