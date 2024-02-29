@@ -1,4 +1,5 @@
-let apiEndpoint = 'http://localhost:8080/getAllCar';
+let apiEndpoint = 'http://localhost:8090/Auction/getAllCar';
+let apiEndpoint2 = 'http://localhost:8090/Bid/bid';
 
 
 let menu = document.querySelector("#menu-btn");
@@ -126,89 +127,6 @@ var swiper = new Swiper(".vehicles-slider", {
 
 
 
-  //login form submission start (not implemented yet)
-//   document.getElementById('loginForm').addEventListener('submit', function (event) {
-//     event.preventDefault(); // Prevent default form submission
-
-    
-//     let email = document.querySelector('.login-form-container input[type="email"]').value;
-//     let password = document.querySelector('.login-form-container input[type="password"]').value;
-
-//     let requestBody = {
-//         email: email,
-//         password: password
-//     };
-
-//     fetch('/login', {
-//         method: 'POST',
-//         headers: {
-//             'Content-Type': 'application/json'
-//         },
-//         body: JSON.stringify(requestBody)
-//     })
-//     .then(response => response.json())
-//     .then(data => {
-//             if (data.success) {
-//             window.location.href = '/signed-in-page';
-//         } else {
-//             console.error('Login failed. Check credentials.');
-//         }
-//     })
-//     .catch(error => {
-//         console.error('Error during login:', error);
-//     });
-// });
-//login form submission end 
-
-
-
-
-
-
-
-
-
-//signup form submission start (not implemented yet)
-// document.getElementById('signupForm').addEventListener('submit', function (event) {
-//     event.preventDefault(); 
-
-//     let firstName = document.querySelector('.signup-form-container input[placeholder="Firstname"]').value;
-//     let lastName = document.querySelector('.signup-form-container input[placeholder="Lastname"]').value;
-//     let email = document.querySelector('.signup-form-container input[type="email"]').value;
-//     let password = document.querySelector('.signup-form-container input[type="password"]').value;
-
-//     let requestBody = {
-//         firstName: firstName,
-//         lastName: lastName,
-//         email: email,
-//         password: password
-//     };
-
-    
-//     fetch('/signup', {
-//         method: 'POST',
-//         headers: {
-//             'Content-Type': 'application/json'
-//         },
-//         body: JSON.stringify(requestBody)
-//     })
-//     .then(response => response.json())
-//     .then(data => {
-        
-//         if (data.success) {
-            
-//             window.location.href = '/signed-in-page';
-//         } else {
-            
-//             console.error('Signup failed. Check input and try again.');
-//         }
-//     })
-//     .catch(error => {
-//         console.error('Error during signup:', error);
-//     });
-// });
-
-//signup form submission end
 
 
 
@@ -259,37 +177,77 @@ var swiper = new Swiper(".vehicles-slider", {
     //add cars dynamically to the auction list 
 
     // Get the swiperWrapper element
-    let swiperWrapper1 = document.getElementById('carList1');
-    const countdownElement = document.getElementById('countdown');
+    // let swiperWrapper1 = document.getElementById('carList1');
+    // const countdownElement = document.getElementById('countdown');
     
-    // Fetch data from the backend API
-    fetch(apiEndpoint)
-        .then(response => response.json())
-        .then(data => {
-            // Loop through the fetched data and create car slides
-            data.slice(0,4).forEach(carData => {
-                let carSlide = document.createElement('div');
+    // // Fetch data from the backend API
+    // fetch(apiEndpoint)
+    //     .then(response => response.json())
+    //     .then(data => {
+    //         // Loop through the fetched data and create car slides
+    //         data.slice(0,4).forEach(carData => {
+    //             let carSlide = document.createElement('div');
                 
                 
-                carSlide.classList.add('swiper-slide', 'box');
+    //             carSlide.classList.add('swiper-slide', 'box');
     
-                carSlide.innerHTML = `
-                    <img src="cars_data/vehicle-${carData.image}.png" alt="">
-                    <h3>${carData.carname}</h3>
-                    <div class="price"><span>Current Bid:</span> ₹${carData.price}</div>
-                    <span class="dollar">₹</span>
-                    <input type="number" class="bid-input" min="${carData.price}" placeholder="place your bid amount" step="1000" value="">
-                    <a href="#" class="btn">Bid Now</a>
-                `;
+    //             carSlide.innerHTML = `
+    //                 <img src="cars_data/vehicle-${carData.image}.png" alt="">
+    //                 <h3>${carData.carname}</h3>
+    //                 <div class="price"><span>Current Bid:</span> ₹${carData.price}</div>
+    //                 <span class="dollar">₹</span>
+    //                 <input type="number" class="bid-input" min="${carData.price}" placeholder="place your bid amount" step="1000" value="">
+    //                 <a href="#" class="btn">Bid Now</a>
+    //             `;
                 
-                swiperWrapper1.appendChild(carSlide);
+    //             swiperWrapper1.appendChild(carSlide);
+    //         });
+    //     })
+    //     .catch(error => {
+    //         console.error('Error fetching data:', error);
+    //     });
+
+    document.addEventListener('DOMContentLoaded', function () {
+        let swiperWrapper1 = document.getElementById('carList1');
+        const countdownElement = document.getElementById('countdown');
+    
+        // Fetch data from the backend API
+        fetch(apiEndpoint)
+            .then(response => response.json())
+            .then(data => {
+                // Loop through the fetched data and create car slides
+                data.slice(0, 4).forEach(carData => {
+                    let carSlide = document.createElement('div');
+    
+                    carSlide.classList.add('swiper-slide', 'box');
+    
+                    carSlide.innerHTML = `
+                        <img src="cars_data/vehicle-${carData.image}.png" alt="">
+                        <h3>${carData.carname}</h3>
+                        <div class="price"><span>Current Bid:</span> ₹${carData.price}</div>
+                        <span class="dollar">₹</span>
+                        <input type="number" class="bid-input" min="${carData.price}" placeholder="place your bid amount" step="1000" value="">
+                        <a href="#" class="btn">Bid Now</a>
+                    `;
+                    swiperWrapper1.appendChild(carSlide);
+                });
+            })
+            .catch(error => {
+                console.error('Error fetching data:', error);
             });
-        })
-        .catch(error => {
-            console.error('Error fetching data:', error);
-        });
+    });
 
         
+    
+
+
+
+
+
+
+
+
+
 
 
 
@@ -325,34 +283,8 @@ var swiper = new Swiper(".vehicles-slider", {
             });    
 
 
-
-
-
-
-// //to send bid amount on clicking the bid now button (waiting on backend api data to be completed)
-// document.addEventListener("DOMContentLoaded", function () {
-//     const bidInput = document.querySelector(".bid-input");
-//     const bidBtn = document.querySelector(".btn");
-//     const startBid = 55000; // Replace with the actual starting bid
-
-//     bidBtn.addEventListener("click", function (event) {
-//         event.preventDefault();
-
-//         // Validate bid input
-//         const bidAmount = parseFloat(bidInput.value);
-//         if (bidAmount >= startBid) {
-//             // Send bid amount to the backend (replace this with your backend logic)
-//             console.log("Bid amount:", bidAmount);
-//             // Here you can make an AJAX or fetch request to send bidAmount to the backend
-//         } else {
-//             alert("Bid amount must be greater than or equal to the current bid.");
-//         }
-//     });
-// });
-
-
 //timer countdown
-    let countDownDate = new Date("Feb 28, 2024 17:30:00").getTime();
+    let countDownDate = new Date("Feb 30, 2024 17:30:00").getTime();
 
     let x = setInterval(function () {
             
@@ -374,5 +306,7 @@ var swiper = new Swiper(".vehicles-slider", {
                 document.getElementById("countdown").innerHTML = "EXPIRED";
             }
         }, 1000);
+
+
 
 

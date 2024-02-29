@@ -25,37 +25,51 @@ document.querySelector('.home').onmousemove = (e) => {
 };
 
   //login form submission start (not implemented yet)
-//   document.getElementById('loginForm').addEventListener('submit', function (event) {
-//     event.preventDefault(); // Prevent default form submission
+  document.getElementById('loginForm').addEventListener('submit', function (event) {
+    event.preventDefault(); // Prevent default form submission
 
     
-//     let email = document.querySelector('.login-form-container input[type="email"]').value;
-//     let password = document.querySelector('.login-form-container input[type="password"]').value;
+    let email = document.querySelector('.login-form-container input[type="email"]').value;
+    let password = document.querySelector('.login-form-container input[type="password"]').value;
 
-//     let requestBody = {
-//         email: email,
-//         password: password
-//     };
+    let requestBody = {
+        email: email,
+        password: password
+    };
 
-//     fetch('/login', {
-//         method: 'POST',
-//         headers: {
-//             'Content-Type': 'application/json'
-//         },
-//         body: JSON.stringify(requestBody)
-//     })
-//     .then(response => response.json())
-//     .then(data => {
-//             if (data.success) {
-//             window.location.href = '/signed-in-page';
-//         } else {
-//             console.error('Login failed. Check credentials.');
-//         }
-//     })
-//     .catch(error => {
-//         console.error('Error during login:', error);
-//     });
-// });
+    fetch('http://localhost:8090/view/login', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(requestBody)
+    })
+    .then(response => {
+        // Check the status code
+        if (response.ok) {
+            console.log('Success! Status Code:', response.status);
+        } 
+        else {
+            console.error('Error! Status Code:', response.status);
+        }
+
+        // You can also access the response text or JSON if needed
+    })
+    .then(response=>response.json())
+    .then(data => {
+            console.log(data);
+        if (data!== null) {
+            console.log("data received", data);
+            // window.location.href="/index.html"
+        } else {
+            console.error('Login failed. Check credentials.');
+        }
+    }) // or response.json() for JSON data
+    .catch(error => {
+        console.error('not here', error);
+        alert('error', error);
+    });
+});
 //login form submission end 
 
 

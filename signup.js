@@ -67,43 +67,42 @@ document.querySelector('.home').onmouseleave = () => {
 
 
 //signup form submission start (not implemented yet)
-// document.getElementById('signupForm').addEventListener('submit', function (event) {
-//     event.preventDefault(); 
-
-//     let firstName = document.querySelector('.signup-form-container input[placeholder="Firstname"]').value;
-//     let lastName = document.querySelector('.signup-form-container input[placeholder="Lastname"]').value;
-//     let email = document.querySelector('.signup-form-container input[type="email"]').value;
-//     let password = document.querySelector('.signup-form-container input[type="password"]').value;
-
-//     let requestBody = {
-//         firstName: firstName,
-//         lastName: lastName,
-//         email: email,
-//         password: password
-//     };
-
+document.getElementById('signup').addEventListener('submit', function (event) {
+    event.preventDefault(); 
+    let firstName = document.querySelector('.reg-form-container input[placeholder="Firstname"]').value;
+    let lastName = document.querySelector('.reg-form-container input[placeholder="Lastname"]').value;
+    let email = document.querySelector('.reg-form-container input[type="email"]').value;
+    let password = document.querySelector('.reg-form-container input[type="password"]').value;
     
-//     fetch('/signup', {
-//         method: 'POST',
-//         headers: {
-//             'Content-Type': 'application/json'
-//         },
-//         body: JSON.stringify(requestBody)
-//     })
-//     .then(response => response.json())
-//     .then(data => {
-        
-//         if (data.success) {
+    let requestBody = {
+        firstName: firstName,
+        lastName: lastName,
+        email: email,
+        password: password
+    };
+     console.log(requestBody);
+    
+    fetch('http://localhost:8090/api/register', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(requestBody)
+    })
+    .then(response => response.json())
+    .then(data => {
             
-//             window.location.href = '/signed-in-page';
-//         } else {
-            
-//             console.error('Signup failed. Check input and try again.');
-//         }
-//     })
-//     .catch(error => {
-//         console.error('Error during signup:', error);
-//     });
-// });
+        if (data !=null) {
+            window.location.href="/login.html"
+        } else {
+            console.error('Login failed. Check credentials.');
+        }
+    })
+    .catch(error => {
+        console.error('Error during Signup:', error);
+    });
+});
 
 //signup form submission end
+
+
