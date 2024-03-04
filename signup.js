@@ -93,7 +93,7 @@ document.getElementById('signup').addEventListener('submit', function (event) {
     .then(data => {
             
         if (data !=null) {
-            window.location.href="../Credex/login.html"
+            window.location.href="login.html"
         } else {
             console.error('Login failed. Check credentials.');
         }

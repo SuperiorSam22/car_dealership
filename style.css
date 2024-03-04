@@ -630,6 +630,9 @@ section{
     margin-bottom: 0;
 }
 
+.name-span p{
+    background-color: rgb(232, 232, 232);
+}
 
 
 

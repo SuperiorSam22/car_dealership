@@ -270,7 +270,7 @@ fetch(apiEndpoint)
 
 
 //=========================countdown timer starts here =================================================
-let countDownDate = new Date("Mar 4, 2024 16:23:00").getTime();
+let countDownDate = new Date("Mar 4, 2024 18:10:00").getTime();
 
     let x = setInterval(function () {
             
@@ -343,7 +343,8 @@ document.addEventListener('DOMContentLoaded', function () {
     
                 keys.slice(0, 3).forEach(key => {
                     const spanElement = document.createElement('span');
-                    spanElement.textContent = `${key}: ${data[0][key]}`;
+                    spanElement.classList.add('name-span')
+                    spanElement.innerHTML = `<p>${key} : ${data[0][key]}</p>`;
                     receiptDataContainer.appendChild(spanElement);
                 });
     
@@ -352,7 +353,8 @@ document.addEventListener('DOMContentLoaded', function () {
     
                     keys.slice(3).forEach(key => {
                         const spanElement = document.createElement('span');
-                        spanElement.textContent = `${key}: ${receipt[key]}`;
+                        spanElement.classList.add('name-span')
+                        spanElement.innerHTML = `<p>${key}: ${receipt[key]}</p>`;
                         divElement.appendChild(spanElement);
                     });
     
