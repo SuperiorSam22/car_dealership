@@ -495,7 +495,193 @@ section{
     text-align: start;
     max-width: 200px;
     padding-left: 40px;
+    
 }
+
+.resbtn {
+    display: inline;
+    margin-top: 1rem;
+    border-radius: .5rem;
+    background: var(--light-yellow);
+    color: var(--black);
+    font-weight: 500;
+    font-size: 1.7rem;
+    cursor: pointer;
+    padding: .8rem 3rem;
+
+}
+.resbtn:hover{
+    background: var(--yellow);
+}
+
+
+.receipt {
+    display: none;
+    justify-content: center;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/* generate receipt css  */
+.receipt-form-container{
+    position: fixed;
+    top: -105%;
+    left: 0;
+    z-index: 1000;
+    height: 100%;
+    width: 100%;
+    background: rgba(255,255,255,.8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+}
+
+.receipt-form-container.active{
+    top: 0;
+    opacity: 1;
+}
+
+.receipt-form-container form {
+    padding: 2rem;
+    margin: 2rem;
+    border-radius: .5rem;
+    box-shadow: var(--box-shadow);
+    background: #fff;
+    border: var(--border);
+    text-align: center;
+    width: 40rem;
+}
+
+.receipt-form-container form .buttons {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.receipt-form-container form .btn{
+    display: block;
+    width: 100%;
+    margin: .5rem 0;
+}
+
+.receipt-form-container form h3 {
+    color:var(--black) ;
+    font-size: 2.5rem;
+    padding-bottom: 1rem;
+    text-transform: uppercase;
+}
+
+.receipt-form-container form .box {
+    margin: .7rem 0;
+    width: 100%;
+    text-transform: none;
+    color: var(--black);
+    font-size: 1.6rem;
+    padding: 1rem 1.2rem;
+    border: var(--border);
+    border-radius: .5rem;
+
+}
+
+.receipt-form-container form p{
+    padding: 1rem 0;
+    font-size: 1.5rem;
+    color: var(--light-color);
+}
+
+
+.receipt-form-container form p a{
+    color: var(--yellow);
+    text-decoration: underline;
+ 
+}
+
+.receipt-form-container #close-receipt-form {
+    position: absolute;
+    top: 1.5rem; 
+    right: 2.5rem;
+    font-size: 5rem;
+    color: var(--black);
+    cursor: pointer;
+}
+
+
+/* h3 {
+    color: #333;
+    margin-bottom: 20px;
+} */
+
+#receiptData span {
+    display: block;
+    margin-bottom: 10px;
+}
+
+#receiptData span:last-child {
+    margin-bottom: 0;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 /* meadia queries */
