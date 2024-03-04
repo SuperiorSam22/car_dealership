@@ -336,6 +336,7 @@ section{
     padding-top: 10rem;
     text-align: center;
     overflow-x: hidden;
+    /* background-image: url('cars_data/background1.jpg'); */
 }
 
 .home h1 {
@@ -349,62 +350,16 @@ section{
     margin: 1rem 0;
 }
 
-.icons-container {
-    padding-top: 5rem;
-    padding-bottom: 5rem;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
-    gap: 1.5rem;
-    background: #eee;
-}
 
-.icons-container .icons{
-    display: flex;
-    align-items: center;
-    gap: 1.5rem;
-    padding: 2rem;
-    background:#fff;
-    box-shadow: var(--box-shadow);
-    border-radius: .5rem;
-
-}
-
-.icons-container .icons i {
-    height: 6%;
-    width: 6rem;
-    line-height: 5rem;
-    font-size: 2.5rem;
-    border-radius: 50%;
-    background: #eee;
-    color: var(--black);
-    text-align: center;
-}
-
-.icons-container .icons .content h3{
-    color: var(--yellow);
-    font-size: 2.5rem;
-}
-
-.icons-container .icons .content p{
+.vehicles {
+    /* background-image: url('cars_data/background1.jpg'); */
+    background-color: rgb(232, 231, 231);
     color: var(--light-color);
-    font-size: 1.5rem;
+    border: var(--border);
+    box-shadow: var(--box-shadow);
+    
 }
 
-.icons-container .icons:hover{
-    background: var(--black);
-}
-
-.icons-container .icons:hover i{
-    background: var(--yellow);
-}
-
-.icons-container .icons:hover .content h3 {
-    color: #fff;
-}
-
-.icons-container .icons:hover .content p {
-    color: #eee;
-}
 
 .vehicles .vehicles-slider {
     padding-bottom: 5rem;
@@ -530,6 +485,17 @@ section{
     font-weight: bold;
 }
 
+
+.footer {
+    background-color: #130f40;
+    
+}
+.footer .head, .team {
+    color: #eee;
+    text-align: start;
+    max-width: 200px;
+    padding-left: 40px;
+}
 
 
 /* meadia queries */

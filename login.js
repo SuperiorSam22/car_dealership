@@ -59,8 +59,7 @@ document.querySelector('.home').onmousemove = (e) => {
     .then(data => {
             console.log(data);
         if (data!== null) {
-            console.log("data received", data);
-            // window.location.href="/index.html"
+            window.location.href="/index.html"
         } else {
             console.error('Login failed. Check credentials.');
         }

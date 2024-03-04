@@ -1,6 +1,4 @@
 let apiEndpoint = 'http://localhost:8090/Auction/getAllCar';
-let apiEndpoint2 = 'http://localhost:8090/Bid/bid';
-
 
 let menu = document.querySelector("#menu-btn");
 let navbar = document.querySelector(".navbar");
@@ -14,25 +12,6 @@ menu.onclick = ()=>{
     menu.classList.toggle('fa-times');
     navbar.classList.toggle('active');
 }
-
-// document.querySelector('#login-btn').onclick = () => {
-//     document.querySelector('.login-form-container').classList.toggle('active');
-// }
-
-// document.querySelector('#close-login-form').onclick = () => {
-//     document.querySelector('.login-form-container').classList.remove('active');
-// }
-
-
-// document.querySelector('#signup-btn').onclick = () => {
-//     document.querySelector('.signup-form-container').classList.toggle('active');
-// }
-
-// document.querySelector('#close-signup-form').onclick = () => {
-//     document.querySelector('.signup-form-container').classList.remove('active');
-// }
-
-
 
 window.onscroll = () =>{
 
@@ -77,7 +56,7 @@ document.querySelector('.home').onmouseleave = () => {
 var swiper = new Swiper(".vehicles-slider", {
     slidesPerView: 1,
     spaceBetween: 20,
-    loop:true,
+    loop:false,
     grabCursor:true,
     centeredSlides:true,
     autoplay: {
@@ -174,48 +153,21 @@ var swiper = new Swiper(".vehicles-slider", {
 
 
 
-    //add cars dynamically to the auction list 
 
-    // Get the swiperWrapper element
-    // let swiperWrapper1 = document.getElementById('carList1');
-    // const countdownElement = document.getElementById('countdown');
-    
-    // // Fetch data from the backend API
-    // fetch(apiEndpoint)
-    //     .then(response => response.json())
-    //     .then(data => {
-    //         // Loop through the fetched data and create car slides
-    //         data.slice(0,4).forEach(carData => {
-    //             let carSlide = document.createElement('div');
-                
-                
-    //             carSlide.classList.add('swiper-slide', 'box');
-    
-    //             carSlide.innerHTML = `
-    //                 <img src="cars_data/vehicle-${carData.image}.png" alt="">
-    //                 <h3>${carData.carname}</h3>
-    //                 <div class="price"><span>Current Bid:</span> ₹${carData.price}</div>
-    //                 <span class="dollar">₹</span>
-    //                 <input type="number" class="bid-input" min="${carData.price}" placeholder="place your bid amount" step="1000" value="">
-    //                 <a href="#" class="btn">Bid Now</a>
-    //             `;
-                
-    //             swiperWrapper1.appendChild(carSlide);
-    //         });
-    //     })
-    //     .catch(error => {
-    //         console.error('Error fetching data:', error);
-    //     });
+
+        //=====================bid function===========
+//================================end of bid function=====================
+        
+//==============================================working swpier class===============================================
 
     document.addEventListener('DOMContentLoaded', function () {
         let swiperWrapper1 = document.getElementById('carList1');
-        const countdownElement = document.getElementById('countdown');
     
-        // Fetch data from the backend API
+  
         fetch(apiEndpoint)
             .then(response => response.json())
             .then(data => {
-                // Loop through the fetched data and create car slides
+                
                 data.slice(0, 4).forEach(carData => {
                     let carSlide = document.createElement('div');
     
@@ -237,29 +189,17 @@ var swiper = new Swiper(".vehicles-slider", {
             });
     });
 
-        
-    
 
 
 
-
-
-
-
-
-
-
-
-
-
-        // Get the swiperWrapper element
+        // Get the swiperWrapper 2 element
         let swiperWrapper2 = document.getElementById('carList2');
         
-        // Fetch data from the backend API
+  
         fetch(apiEndpoint)
             .then(response => response.json())
             .then(data => {
-                // Loop through the fetched data and create car slides
+          
                 data.slice(4,8).forEach(carData => {
                     let carSlide = document.createElement('div');
                     
@@ -274,17 +214,121 @@ var swiper = new Swiper(".vehicles-slider", {
                         <a href="#" class="btn">Bid Now</a>
                     `;
                     
-        
                     swiperWrapper2.appendChild(carSlide);
                 });
             })
             .catch(error => {
                 console.error('Error fetching data:', error);
             });    
+//======================================================================================
+
+
+
+//=============================update bid and show cars at the same time// not working  
+// async function fetchMaxBid() {
+//     try {
+//         const response = await fetch(`http://localhost:8090/Bid/getbid?carId=1`);
+//         const data = await response.json();
+//         return data.maxbid;
+//     } catch (error) {
+//         console.error('Error fetching max bid:', error);
+//         throw error;
+//     }
+// }
+
+// async function fetchCarList() {
+//     try {
+//         const response = await fetch(apiEndpoint);
+//         const data = await response.json();
+//         return data.slice(0, 4);
+//     } catch (error) {
+//         console.error('Error fetching car list:', error);
+//         throw error;
+//     }
+// }
+
+// async function updateMaxBid() {
+//     try {
+//         const maxBid = await fetchMaxBid();
+//         const priceElement = document.querySelector('.price');
+//         priceElement.innerHTML = `<span>Current Bid:</span> ₹${maxBid}`;
+//     } catch (error) {
+//         console.error('Error updating max bid:', error);
+//     }
+// }
+
+// async function updateCarList() {
+//     try {
+//         const maxBid = await fetchMaxBid(); // Fetch the max bid
+
+//         const carList = await fetchCarList();
+//         let swiperWrapper1 = document.getElementById('carList1');
+
+//         carList.forEach(carData => {
+//             let carSlide = document.createElement('div');
+//             carSlide.classList.add('swiper-slide', 'box');
+
+//             carSlide.innerHTML = `
+//                 <img src="cars_data/vehicle-${carData.image}.png" alt="">
+//                 <h3>${carData.carname}</h3>
+//                 <div class="price"><span>Current Bid:</span> ₹${maxBid}</div>
+//                 <span class="dollar">₹</span>
+//                 <input type="number" class="bid-input" min="${carData.price}" placeholder="place your bid amount" step="1000" value="">
+//                 <a href="#" class="btn" data-carname="${carData.carname}" data-carid="${carData.image}">Bid Now</a>
+//             `;
+//             swiperWrapper1.appendChild(carSlide);
+
+//             // Add event listener for the "Bid Now" button
+//             const bidButton = carSlide.querySelector('.btn');
+//             bidButton.addEventListener('click', async () => {
+//                 const bidInput = carSlide.querySelector('.bid-input');
+//                 const bidAmount = parseInt(bidInput.value);
+
+//                 // Make a POST request to update the max bid on the backend
+//                 try {
+//                     const response = await fetch('http://localhost:8090/Bid/bid', {
+//                         method: 'POST',
+//                         headers: {
+//                             'Content-Type': 'application/json',
+//                         },
+//                         body: JSON.stringify({
+//                             name: carData.carname,
+//                             id: carData.image,
+//                             price: bidAmount,
+//                         }),
+//                     });
+//                     const result = await response.json();
+//                     console.log(result);
+//                 } catch (error) {
+//                     console.error('Error updating max bid on the backend:', error);
+//                 }
+//             });
+//         });
+//     } catch (error) {
+//         console.error('Error updating car list:', error);
+//     }
+// }
+
+// Fetch initial data
+// document.addEventListener('DOMContentLoaded', async function () {
+//     await updateMaxBid();
+//     await updateCarList();
+// });
+//===========================================================
+
+
+
+
+
+
+
+
+
+
 
 
 //timer countdown
-    let countDownDate = new Date("Feb 30, 2024 17:30:00").getTime();
+    let countDownDate = new Date("Mar 10, 2024 11:13:00").getTime();
 
     let x = setInterval(function () {
             
@@ -309,4 +353,6 @@ var swiper = new Swiper(".vehicles-slider", {
 
 
 
+            
 
+          
