@@ -2,6 +2,7 @@ package com.example.demo.Controller;
 
 
 import com.example.demo.model.User;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import com.example.demo.Service.UserServiceImpl;
@@ -28,7 +29,7 @@ public class RegistrationController
 	}
 	@CrossOrigin
 	@PostMapping("/register")
-	public User createEntry(@RequestBody UserRegistrationDto registrationDto)
+	public ResponseEntity<User> createEntry(@RequestBody UserRegistrationDto registrationDto)
 	{
 		return  userServiceImpl.saveUser(registrationDto);
     }

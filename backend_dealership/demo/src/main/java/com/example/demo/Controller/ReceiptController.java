@@ -1,5 +1,7 @@
 package com.example.demo.Controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -13,8 +15,8 @@ public class ReceiptController {
 	@Autowired
 	Receiptservice sr;
     @CrossOrigin
- @PostMapping("/generate")
- public Receipt Generator(@RequestParam int carId,@RequestParam String email) {
-	 return sr.getreceipt(carId,email);
+ @PostMapping("/getAllReceipt")
+ public List<Receipt> Generator(@RequestBody Receipt rp) {
+	 return sr.getreceipt(rp.getEmail());
  }
 }

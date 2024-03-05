@@ -8,7 +8,7 @@ import jakarta.persistence.Table;
 @Entity
 @Table(name="Car_Entries")
 public class Cars {
-	public Cars(String image2, String carname2, String engineCapacity2, String price2, String fueltype2) {
+	public Cars(String image2, String carname2, String engineCapacity2, int price2, String fueltype2) {
 	this.image=image2;
 	this.Carname=carname2;
 	this.Fueltype=fueltype2;
@@ -35,7 +35,7 @@ public class Cars {
 		return Carname;
 	}
 	public void setCarname(String carname) {
-		Carname = carname;
+		this.Carname = carname;
 	}
 	public String getEngineCapacity() {
 		return EngineCapacity;
@@ -43,17 +43,17 @@ public class Cars {
 	public void setEngineCapacity(String engineCapacity) {
 		EngineCapacity = engineCapacity;
 	}
-	public String getPrice() {
+	public int getPrice() {
 		return Price;
 	}
-	public void setPrice(String price) {
-		Price = price;
+	public void setPrice(int price) {
+		this.Price = price;
 	}
 	public String getFueltype() {
 		return Fueltype;
 	}
 	public void setFueltype(String fueltype) {
-		Fueltype = fueltype;
+		this.Fueltype = fueltype;
 	}
 	@Id
 	@GeneratedValue
@@ -62,7 +62,7 @@ private String image;
 
 private String Carname;
    private String EngineCapacity;
-   private String Price;
+   private int Price;
    private String Fueltype;
    
 }

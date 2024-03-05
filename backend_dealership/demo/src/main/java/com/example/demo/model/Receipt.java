@@ -3,18 +3,14 @@ package com.example.demo.model;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 
-@Entity
 public class Receipt {
-	@Id
-  public int carid;
   public String email;
   public String firstName;
   public String lastName;
   public String carName;
   public int salePrice;
-public Receipt(int id, String email, String firstName, String lastName, String carName, int salePrice) {
+public Receipt(String email, String firstName, String lastName, String carName, int salePrice) {
 	super();
-	this.carid = id;
 	this.email = email;
 	this.firstName = firstName;
 	this.lastName = lastName;
@@ -23,12 +19,7 @@ public Receipt(int id, String email, String firstName, String lastName, String c
 }
 public Receipt() {
 }
-public int getId() {
-	return carid;
-}
-public void setId(int id) {
-	this.carid = id;
-}
+
 public String getEmail() {
 	return email;
 }

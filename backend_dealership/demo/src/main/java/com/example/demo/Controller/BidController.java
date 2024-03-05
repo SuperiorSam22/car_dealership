@@ -20,7 +20,7 @@ public class BidController {
    }
     @CrossOrigin
    @GetMapping("/addCar")
-   public Cars addcrr(@RequestParam String image,@RequestParam String Carname,@RequestParam String EngineCapacity,@RequestParam String Price,@RequestParam String Fueltype){
+   public Cars addcrr(@RequestParam String image,@RequestParam String Carname,@RequestParam String EngineCapacity,@RequestParam int Price,@RequestParam String Fueltype){
 	   return sA.Addcar(new Cars(image,Carname,EngineCapacity,Price,Fueltype));
    }
     @CrossOrigin
