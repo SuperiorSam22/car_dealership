@@ -53,15 +53,15 @@ document.querySelector('.home').onmousemove = (e) => {
     .then(data => {
             console.log(data);
         if (data !== null) {
-            // console.log("data received", data);
+            sessionStorage.setItem("loginData", JSON.stringify(data));
             window.location.href="index.html"
         } else {
             console.error('Login failed. Check credentials.');
         }
     }) // or response.json() for JSON data
     .catch(error => {
-        console.error('not here', error);
-        alert('error', error);
+        // console.error('not here', error);
+        alert('Invalid credentials', error);
     });
 });
 //login form submission end 

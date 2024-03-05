@@ -1,5 +1,7 @@
 let apiEndpoint = 'http://localhost:8090/Auction/getAllCar';
-
+const loginData = sessionStorage.getItem("loginData");
+const pasredResponse=JSON.parse(loginData);
+console.log(pasredResponse.email);
 
 let menu = document.querySelector("#menu-btn");
 let navbar = document.querySelector(".navbar");
@@ -169,13 +171,14 @@ var swiper = new Swiper(".vehicles-slider", {
                     const bidAmount = bidAmountInput.value;
                     console.log(carId, bidAmountInput, bidAmount);
                     if (!bidAmount || bidAmount < parseInt(bidAmountInput.min)) {
-                        alert('Please enter a valid bid amount.');
+                        alert('Bid amount should be greater than the current bid');
                         return;
                     }
                     let requestBody={
                         carId:carId,
                         maxbid: bidAmount,
-                        customerName:carData.carname
+                        customerName:carData.carname,
+                        email: pasredResponse.email
                     };
                     console.log(requestBody);
                     fetch('http://localhost:8090/Bid/bid', {
@@ -186,6 +189,9 @@ var swiper = new Swiper(".vehicles-slider", {
                         body: JSON.stringify(requestBody),
                     })
                     .then(data => {
+                            
+                            alert('Bid Placed successfully');
+                        
                             window.location.href="index.html";
                         
                         
@@ -237,7 +243,8 @@ fetch(apiEndpoint)
                 let requestBody={
                     carId:carId,
                     maxbid: bidAmount,
-                    customerName:carData.carname
+                    customerName:carData.carname,
+                    email: pasredResponse.email
                 };
                 console.log(requestBody);
                 fetch('http://localhost:8090/Bid/bid', {
@@ -248,6 +255,7 @@ fetch(apiEndpoint)
                     body: JSON.stringify(requestBody),
                 })
                 .then(data => {
+                        alert('Bid Placed successfully');                   
                         window.location.href="index.html";
                     
                     
@@ -270,7 +278,7 @@ fetch(apiEndpoint)
 
 
 //=========================countdown timer starts here =================================================
-let countDownDate = new Date("Mar 4, 2024 18:10:00").getTime();
+let countDownDate = new Date("Mar 5, 2024 13:00:00").getTime();
 
     let x = setInterval(function () {
             
@@ -307,6 +315,7 @@ document.querySelector('#receipt').onclick = () => {
 
 document.querySelector('#close-receipt-form').onclick = () => {
     document.querySelector('.receipt-form-container').classList.remove('active');
+    // window.location.reload();
 }
 
 
@@ -324,7 +333,7 @@ document.addEventListener('DOMContentLoaded', function () {
 //receipt generation from api call ======================================================================
     // Fetch data from API
     const apiUrl = 'http://localhost:8090/Receipt/getAllReceipt';
-    const email = 'sam@gmail.com';
+    const email = pasredResponse.email;
     
     fetch(apiUrl, {
         method: 'POST',
@@ -335,7 +344,7 @@ document.addEventListener('DOMContentLoaded', function () {
     })
         .then(response => response.json())
         .then(data => {
-            // Populate form with data
+          
             const receiptDataContainer = document.getElementById('receiptData');
     
             if (data.length > 0) {
@@ -351,9 +360,8 @@ document.addEventListener('DOMContentLoaded', function () {
                 data.forEach(receipt => {
                     const divElement = document.createElement('div');
     
-                    keys.slice(3).forEach(key => {
+                    keys.slice(3,5).forEach(key => {
                         const spanElement = document.createElement('span');
-                        spanElement.classList.add('name-span')
                         spanElement.innerHTML = `<p>${key}: ${receipt[key]}</p>`;
                         divElement.appendChild(spanElement);
                     });
@@ -367,3 +375,12 @@ document.addEventListener('DOMContentLoaded', function () {
         .catch(error => {
             console.error('Error fetching data:', error);
         });
+
+
+
+//=============================================signout function start =========================================
+function logout(){
+    sessionStorage.removeItem('loginData');
+    window.location.href= "login.html";
+}
+//===============================================signout function ends ======================================

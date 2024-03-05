@@ -353,7 +353,7 @@ section{
 
 .vehicles {
     /* background-image: url('cars_data/background1.jpg'); */
-    background-color: rgb(232, 231, 231);
+    background-color: rgb(243, 243, 243);
     color: var(--light-color);
     border: var(--border);
     box-shadow: var(--box-shadow);
@@ -373,7 +373,7 @@ section{
 .vehicles .vehicles-slider .box img{
     width: 100%;
     opacity: .5 ;
-    transform: scale(.8);
+    transform: scale(0.8);
 }
 
 .vehicles .vehicles-slider .box .content{
@@ -544,6 +544,7 @@ section{
     align-items: center;
     justify-content: center;
     opacity: 0;
+    
 }
 
 .receipt-form-container.active{
@@ -557,9 +558,10 @@ section{
     border-radius: .5rem;
     box-shadow: var(--box-shadow);
     background: #fff;
-    border: var(--border);
+    border: var(--yellow);
     text-align: center;
     width: 40rem;
+   
 }
 
 .receipt-form-container form .buttons {

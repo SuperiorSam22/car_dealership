@@ -23,49 +23,6 @@ document.querySelector('.home').onmouseleave = () => {
 };
 
 
-
-  //login form submission start (not implemented yet)
-//   document.getElementById('loginForm').addEventListener('submit', function (event) {
-//     event.preventDefault(); // Prevent default form submission
-
-    
-//     let email = document.querySelector('.login-form-container input[type="email"]').value;
-//     let password = document.querySelector('.login-form-container input[type="password"]').value;
-
-//     let requestBody = {
-//         email: email,
-//         password: password
-//     };
-
-//     fetch('/login', {
-//         method: 'POST',
-//         headers: {
-//             'Content-Type': 'application/json'
-//         },
-//         body: JSON.stringify(requestBody)
-//     })
-//     .then(response => response.json())
-//     .then(data => {
-//             if (data.success) {
-//             window.location.href = '/signed-in-page';
-//         } else {
-//             console.error('Login failed. Check credentials.');
-//         }
-//     })
-//     .catch(error => {
-//         console.error('Error during login:', error);
-//     });
-// });
-//login form submission end 
-
-
-
-
-
-
-
-
-
 //signup form submission start (not implemented yet)
 document.getElementById('signup').addEventListener('submit', function (event) {
     event.preventDefault(); 
@@ -89,16 +46,24 @@ document.getElementById('signup').addEventListener('submit', function (event) {
         },
         body: JSON.stringify(requestBody)
     })
-    .then(response => response.json())
+    .then(response => {
+        if (!response.ok) {
+            throw new Error(`HTTP error! Status: ${response.status}`);
+          }
+          return response.json();
+    })
+    // .then(response => response.json())
     .then(data => {
             
         if (data !=null) {
             window.location.href="login.html"
+            
         } else {
             console.error('Login failed. Check credentials.');
         }
     })
     .catch(error => {
+        alert("User already registered. Please sign in");
         console.error('Error during Signup:', error);
     });
 });
