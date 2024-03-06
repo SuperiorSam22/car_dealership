@@ -372,8 +372,9 @@ section{
 
 .vehicles .vehicles-slider .box img{
     width: 100%;
+    height: 30rem;
     opacity: .5 ;
-    transform: scale(0.8);
+    transform: scale(0.7);
 }
 
 .vehicles .vehicles-slider .box .content{
@@ -444,14 +445,15 @@ section{
 .featured .featured-slider .box img{
     /* height: 13rem; */
     width: 100%;
+    height: 22rem;
     padding:2rem;
     object-fit: cover;
     
 }
-.featured .featured-slider .box img{
+/* .featured .featured-slider .box img{
     transform:scale(.9);
     
-}
+} */
 
 .featured .featured-slider .box h3{
     font-size: 2.2rem;
