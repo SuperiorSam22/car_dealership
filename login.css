@@ -242,6 +242,12 @@ section{
     margin: 1rem 0;
 }
 
+/* message for wrong email or password */
+#notfound {
+    color: red;
+    display: none ;
+}
+
 
 
 
