@@ -15,31 +15,6 @@ public class loginController
 {
 	    @Autowired
 	    public UserServiceImpl userserviceImpl;
-		@CrossOrigin
-	   @ModelAttribute("user")
-	   public UserRegistrationDto userRegDto()
-	   {
-		     return new UserRegistrationDto();
-	   }
-	@CrossOrigin
-	   @GetMapping("/home-page")
-	   public String toCheck()
-	   {
-		     return "home";
-	   }
-	@CrossOrigin
-	   
-	   @GetMapping("/")
-	   public String nothings()
-	   {
-		     return "homeis";
-	   }
-	@CrossOrigin
-	   @GetMapping("/registration-page")
-	   public String regPage()
-	   {
-		   return "index";
-	   }
 	@CrossOrigin
 	   @PostMapping("/login")
 		public  ResponseEntity<User> Validate(@RequestBody User bd)

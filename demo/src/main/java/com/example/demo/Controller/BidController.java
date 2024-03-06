@@ -16,7 +16,8 @@ public class BidController {
     @CrossOrigin
     @GetMapping("/getAllCar")
    public List<Cars> DisplayCars(){
-	   return sA.ShowCars();
+
+        return sA.ShowCars();
    }
     @CrossOrigin
    @GetMapping("/addCar")

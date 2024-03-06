@@ -278,7 +278,7 @@ fetch(apiEndpoint)
 
 
 //=========================countdown timer starts here =================================================
-let countDownDate = new Date("Mar 5, 2024 12:48:00").getTime();
+let countDownDate = new Date("Mar 10, 2024 12:48:00").getTime();
 
     let x = setInterval(function () {
             
