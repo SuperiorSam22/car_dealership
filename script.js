@@ -185,7 +185,7 @@ var swiper = new Swiper(".vehicles-slider", {
                     <div class="price"><span>Current Bid:</span> ₹${carData.price}</div>
                     <span class="dollar">₹</span>
                     <input type="number" class="bid-input" id="toggle" min="${carData.price}" placeholder="place your bid amount" step="1000" value="">
-                    <a href="#" class="btn">Bid Now</a>
+                    <a href="#featured" class="btn">Bid Now</a>
                 `;
                
                 const bidButton = carSlide.querySelector('.btn');
@@ -197,7 +197,7 @@ var swiper = new Swiper(".vehicles-slider", {
                     const bidAmount = bidAmountInput.value;
                     console.log(carId, bidAmountInput, bidAmount);
                     if (!bidAmount || bidAmount < parseInt(bidAmountInput.min)) {
-                        alert('Bid amount should be greater than the current bid');
+                        openModal('Bid must exceed current bid');
                         return;
                     }
                     let requestBody={
@@ -216,15 +216,15 @@ var swiper = new Swiper(".vehicles-slider", {
                     })
                     .then(data => {
                             
-                            alert('Bid Placed successfully');
+                            openModal('Bid Placed successfully');
                         
-                            window.location.href="index.html";
+                            // window.location.href="index.html";
                         
                         
                         })
                         .catch(error => {
                             console.error('Error:', error);
-                            alert('Failed to update bid. Please try again.');
+                            openModal('Failed to update bid. Please try again.');
                         });
                 });
                 swiperWrapper1.appendChild(carSlide);
@@ -239,6 +239,7 @@ var swiper = new Swiper(".vehicles-slider", {
 
 //============================== swiper class 2 starts here ================================================
 const swiperWrapper2 = document.getElementById('carList2');
+
 fetch(apiEndpoint)
     .then(response => response.json())
     .then(data => {
@@ -251,30 +252,28 @@ fetch(apiEndpoint)
                 <div class="price"><span>Current Bid:</span> ₹${carData.price}</div>
                 <span class="dollar">₹</span>
                 <input type="number" class="bid-input" id="toggle" min="${carData.price}" placeholder="place your bid amount" step="1000" value="">
-                <a href="#" class="btn">Bid Now</a>
+                <a href="#featured" class="btn">Bid Now</a>
             `;
-           
+
             const bidButton = carSlide.querySelector('.btn');
-           
+
             bidButton.addEventListener('click', function () {
-                
                 const carId = carData.id;
                 const bidAmountInput = carSlide.querySelector('.bid-input');
                 const bidAmount = bidAmountInput.value;
-                console.log(carId, bidAmountInput, bidAmount);
-                if (!bidAmount || bidAmount < parseInt(bidAmountInput.min)) {
 
-                    alert('Bid amount should be greater than the current bid');
-                    
+                if (!bidAmount || bidAmount < parseInt(bidAmountInput.min)) {
+                    openModal('Bid must exceed current bid');
                     return;
                 }
-                let requestBody={
-                    carId:carId,
+
+                let requestBody = {
+                    carId: carId,
                     maxbid: bidAmount,
-                    customerName:carData.carname,
+                    customerName: carData.carname,
                     email: pasredResponse.email
                 };
-                console.log(requestBody);
+
                 fetch('http://localhost:8090/Bid/bid', {
                     method: 'POST',
                     headers: {
@@ -283,15 +282,13 @@ fetch(apiEndpoint)
                     body: JSON.stringify(requestBody),
                 })
                 .then(data => {
-                        alert('Bid Placed successfully');                   
-                        window.location.href="index.html";
-                    
-                    
-                    })
-                    .catch(error => {
-                        console.error('Error:', error);
-                        alert('Failed to update bid. Please try again.');
-                    });
+                    openModal('Bid Placed successfully');
+                    // window.location.href = "index.html";
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    openModal('Failed to update bid. Please try again.');
+                });
             });
             swiperWrapper2.appendChild(carSlide);
         });
@@ -299,37 +296,30 @@ fetch(apiEndpoint)
     .catch(error => {
         console.error('Error fetching data:', error);
     });
+
+
 //========================swiper class 2 ends here =================================
 
 
 
+//====================message modal function  =======================================
+// Modal functions
+function openModal(message) {
+    const modal = document.getElementById('customModal');
+    const modalMessage = document.getElementById('modalMessage');
+
+    modalMessage.textContent = message;
+    modal.style.display = 'block';
+}
+
+function closeModal() {
+    const modal = document.getElementById('customModal');
+    modal.style.display = 'none';
+    window.location.href = "index.html";
+}
+// ======================message modal function ends here ================================
 
 
-//=========================countdown timer starts here =================================================
-let countDownDate = new Date("Mar 10, 2024 12:48:00").getTime();
-
-    let x = setInterval(function () {
-            
-        let now = new Date().getTime();
-
-        let distance = countDownDate - now;
-
-        let days = Math.floor(distance / (1000 * 60 * 60 * 24));
-        let hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-        let minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-        let seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-            document.getElementById("countdown").innerHTML = days + "d " + hours + "h "
-                + minutes + "m " + seconds + "s ";
-
-            if (distance < 0) {
-                
-                featured.style.display = 'none'; clearInterval(x);
-                document.getElementById("countdown").innerHTML = "EXPIRED";
-                receipt.style.display = 'flex';
-            }
-        }, 1000);
-//==============================//countdown timer starts here =======================================        
 
 
 
@@ -412,3 +402,46 @@ function logout(){
     window.location.href= "login.html";
 }
 //===============================================signout function ends ======================================
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//=========================countdown timer starts here =================================================
+let countDownDate = new Date("Mar 10, 2024 12:48:00").getTime();
+
+    let x = setInterval(function () {
+            
+        let now = new Date().getTime();
+
+        let distance = countDownDate - now;
+
+        let days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        let hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        let minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        let seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            document.getElementById("countdown").innerHTML = days + "d " + hours + "h "
+                + minutes + "m " + seconds + "s ";
+
+            if (distance < 0) {
+                
+                featured.style.display = 'none'; clearInterval(x);
+                document.getElementById("countdown").innerHTML = "EXPIRED";
+                receipt.style.display = 'flex';
+            }
+        }, 1000);
+//==============================//countdown timer starts here =======================================        
+
+
