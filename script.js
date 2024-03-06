@@ -263,7 +263,9 @@ fetch(apiEndpoint)
                 const bidAmount = bidAmountInput.value;
                 console.log(carId, bidAmountInput, bidAmount);
                 if (!bidAmount || bidAmount < parseInt(bidAmountInput.min)) {
-                    alert('Please enter a valid bid amount.');
+
+                    alert('Bid amount should be greater than the current bid');
+                    
                     return;
                 }
                 let requestBody={
@@ -304,7 +306,7 @@ fetch(apiEndpoint)
 
 
 //=========================countdown timer starts here =================================================
-let countDownDate = new Date("Mar 6, 2024 12:48:00").getTime();
+let countDownDate = new Date("Mar 10, 2024 12:48:00").getTime();
 
     let x = setInterval(function () {
             
