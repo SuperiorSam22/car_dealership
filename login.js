@@ -61,7 +61,11 @@ document.querySelector('.home').onmousemove = (e) => {
     }) // or response.json() for JSON data
     .catch(error => {
         // console.error('not here', error);
-        alert('Invalid credentials', error);
+        notfound.style.display = 'block';
+        // alert('Invalid credentials', error);
+        setTimeout(() => {
+            notfound.style.display = 'none';
+        }, 1000);
     });
 });
 //login form submission end 
