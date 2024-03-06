@@ -216,6 +216,11 @@ section{
     margin: 1rem 0;
 }
 
+#presentUser {
+    color: red;
+    display: none;
+}
+
 
 /* meadia queries */
 

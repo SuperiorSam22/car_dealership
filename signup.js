@@ -63,7 +63,13 @@ document.getElementById('signup').addEventListener('submit', function (event) {
         }
     })
     .catch(error => {
-        alert("User already registered. Please sign in");
+        // alert("User already registered. Please sign in");
+        
+        presentUser.style.display = 'block';
+        // alert('Invalid credentials', error);
+        setTimeout(() => {
+            presentUser.style.display = 'none';
+        }, 2000);
         console.error('Error during Signup:', error);
     });
 });
