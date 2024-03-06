@@ -21,8 +21,8 @@ public class BidController {
    }
     @CrossOrigin
    @GetMapping("/addCar")
-   public Cars addcrr(@RequestParam String image,@RequestParam String Carname,@RequestParam String EngineCapacity,@RequestParam int Price,@RequestParam String Fueltype){
-	   return sA.Addcar(new Cars(image,Carname,EngineCapacity,Price,Fueltype));
+   public Cars addcrr(@RequestBody Cars car){
+	   return sA.Addcar(new Cars(car.getId(), car.getImage(), car.getCarname(), car.getEngineCapacity(), car.getPrice(), car.getFueltype(), car.getMileage(), car.getPower(), car.getTorque(), car.getTransmission(), car.getModelYear(), car.getKmsDriven()));
    }
     @CrossOrigin
    @GetMapping("/find")

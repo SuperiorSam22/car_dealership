@@ -136,11 +136,17 @@ var swiper = new Swiper(".vehicles-slider", {
             
 
                 document.querySelector(`#viewBtn${carData.id}`).onclick = () => {
-                    
+
                     document.querySelector('#carName').textContent = carData.carname;
                     document.querySelector('#price').textContent = `Price: ₹${carData.price}/-`;
                     document.querySelector('#engineCapacity').textContent = `Engine Capacity: ${carData.engineCapacity}cc`;
+                    document.querySelector('#kmsDriven').textContent = `KMs Driven: ${carData.kmsDriven}`;
                     document.querySelector('#fuelType').textContent = `Fuel Type: ${carData.fueltype}`;
+                    document.querySelector('#modelYear').textContent = `Model Year: ${carData.modelYear}`;
+                    document.querySelector('#torque').textContent = `Transmission: ${carData.transmission}`;
+                    document.querySelector('#power').textContent = `Power: ${carData.power}`;
+                    document.querySelector('#mileage').textContent = `Fuel Type: ${carData.mileage}`;
+                
 
 
                     document.querySelector('.specifications').classList.toggle('active');
