@@ -244,10 +244,24 @@ section{
 }
 
 
-/* registration button */
+/* specs container start */
+.view-specs{
+    display: inline-block;
+    margin-top: 1rem;
+    border-radius: .5rem;
+    background: var(--light-yellow);
+    color: var(--black);
+    font-weight: 500;
+    font-size: 1.7rem;
+    cursor: pointer;
+    padding: .8rem 3rem;
+}
 
+.view-specs:hover{
+    background: var(--yellow);
+}
 
-.signup-form-container{
+.specifications{
     position: fixed;
     top: -105%;
     left: 0;
@@ -255,18 +269,18 @@ section{
     height: 100%;
     width: 100%;
     background: rgba(255,255,255,.8);
-    display: none;
+    display: flex;
     align-items: center;
     justify-content: center;
-    opacity: 0;
+    opacity: 1;
 }
 
-.signup-form-container.active{
+.specifications.active{
     top: 0;
     opacity: 1;
 }
 
-.signup-form-container form {
+.specifications form {
     padding: 2rem;
     margin: 2rem;
     border-radius: .5rem;
@@ -277,51 +291,26 @@ section{
     width: 40rem;
 }
 
-.signup-form-container form .buttons {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-}
 
-.signup-form-container form .btn{
-    display: block;
-    width: 100%;
-    margin: .5rem 0;
-}
-
-.signup-form-container form h3 {
+.specifications form h3 {
     color:var(--black) ;
     font-size: 2.5rem;
     padding-bottom: 1rem;
     text-transform: uppercase;
 }
 
-.signup-form-container form .box {
-    margin: .7rem 0;
-    width: 100%;
-    text-transform: none;
-    color: var(--black);
-    font-size: 1.6rem;
-    padding: 1rem 1.2rem;
-    border: var(--border);
-    border-radius: .5rem;
 
-}
 
-.signup-form-container form p{
+.specifications form p{
     padding: 1rem 0;
     font-size: 1.5rem;
     color: var(--light-color);
+    text-align: left;
+    
 }
 
 
-.signup-form-container form p a{
-    color: var(--yellow);
-    text-decoration: underline;
- 
-}
-
-.signup-form-container #close-signup-form {
+.specifications #close-specs-form {
     position: absolute;
     top: 1.5rem; 
     right: 2.5rem;
@@ -329,6 +318,10 @@ section{
     color: var(--black);
     cursor: pointer;
 }
+
+/* specs-container end  */
+
+
 
 
 
