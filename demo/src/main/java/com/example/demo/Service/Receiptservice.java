@@ -32,7 +32,7 @@ public class Receiptservice {
 		  rp.setLastName(user.getLastName());
 		  rp.setCarName(crs.getCarname());
 		  rp.setEmail(email);
-		  rp.setSalePrice(value.getCarId());
+		  rp.setSalePrice(value.getMaxbid());
 		  ans.add(rp);
 	  }
 	   return ans;

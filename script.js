@@ -62,10 +62,10 @@ var swiper = new Swiper(".vehicles-slider", {
     loop:false,
     grabCursor:true,
     centeredSlides:true,
-    autoplay: {
-        delay: 9500,
-        disableOnInteraction: false,
-      },
+    // autoplay: {
+    //     delay: 9500,
+    //     disableOnInteraction: false,
+    //   },
     pagination: {
       el: ".swiper-pagination",
       clickable: true,
@@ -118,7 +118,6 @@ var swiper = new Swiper(".vehicles-slider", {
             data.forEach(carData => {
                 let carSlide = document.createElement('div');
                 carSlide.classList.add('swiper-slide', 'box');
-
                 carSlide.innerHTML = `
                     <img src="cars_data/vehicle-${carData.image}.png" alt="">
                     <div class="content">
@@ -129,16 +128,43 @@ var swiper = new Swiper(".vehicles-slider", {
                             <span class="fas fa-circle"></span> ${carData.engineCapacity}cc
                             <span class="fas fa-circle"></span> ${carData.fueltype}
                         </p>
+                        <button class="view-specs" id="viewBtn${carData.id}">View Specs</button>
                     </div>
                 `;
-
+            
                 swiperWrapper.appendChild(carSlide);
-            });
+            
+
+                document.querySelector(`#viewBtn${carData.id}`).onclick = () => {
+
+                    document.querySelector('#carName').textContent = carData.carname;
+                    document.querySelector('#price').textContent = `Price: ₹${carData.price}/-`;
+                    document.querySelector('#engineCapacity').textContent = `Engine Capacity: ${carData.engineCapacity}cc`;
+                    document.querySelector('#kmsDriven').textContent = `KMs Driven: ${carData.kmsDriven}`;
+                    document.querySelector('#fuelType').textContent = `Fuel Type: ${carData.fueltype}`;
+                    document.querySelector('#modelYear').textContent = `Model Year: ${carData.modelYear}`;
+                    document.querySelector('#torque').textContent = `Transmission: ${carData.transmission}`;
+                    document.querySelector('#power').textContent = `Power: ${carData.power}`;
+                    document.querySelector('#mileage').textContent = `Fuel Type: ${carData.mileage}`;
+                
+
+
+                    document.querySelector('.specifications').classList.toggle('active');
+                    
+                }
+                
+                document.querySelector('#close-specs-form').onclick = () => {
+                    document.querySelector('.specifications').classList.remove('active');
+                }
+            })
         })
         .catch(error => {
             console.error('Error fetching data:', error);
         });
 //======================== car specification swiper ends here =============================================
+
+
+
 
 
 
@@ -278,7 +304,7 @@ fetch(apiEndpoint)
 
 
 //=========================countdown timer starts here =================================================
-let countDownDate = new Date("Mar 10, 2024 12:48:00").getTime();
+let countDownDate = new Date("Mar 6, 2024 12:48:00").getTime();
 
     let x = setInterval(function () {
             
