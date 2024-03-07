@@ -1,20 +1,15 @@
 let apiEndpoint = 'http://localhost:8090/Auction/getAllCar';
+
+
+//=============== store user login data start ===================================
 const loginData = sessionStorage.getItem("loginData");
 const pasredResponse=JSON.parse(loginData);
 console.log(pasredResponse.email);
+//========================= store user login data end ===========================
 
 let menu = document.querySelector("#menu-btn");
 let navbar = document.querySelector(".navbar");
 
-menu.onclick = ()=>{
-    menu.classList.toggle('fa-times');
-    navbar.classList.toggle('active');
-}
-
-menu.onclick = ()=>{
-    menu.classList.toggle('fa-times');
-    navbar.classList.toggle('active');
-}
 
 window.onscroll = () =>{
 
@@ -23,21 +18,6 @@ window.onscroll = () =>{
     }else{
         document.querySelector('.header').classList.remove('active');
     }
-
-    menu.classList.remove('fa-times');
-    navbar.classList.remove('active');
-}
-
-window.onload = () =>{
-
-    if(window.scrollY > 0){
-        document.querySelector('.header').classList.add('active');
-    }else{
-        document.querySelector('.header').classList.remove('active');
-    }
-
-    menu.classList.remove('fa-times');
-    navbar.classList.remove('active');
 }
 
 document.querySelector('.home').onmousemove = (e) => {
@@ -56,6 +36,8 @@ document.querySelector('.home').onmouseleave = () => {
     })
 };
 
+
+//==================================== swiper class controls  for car specification slider starts here ===================================
 var swiper = new Swiper(".vehicles-slider", {
     slidesPerView: 1,
     spaceBetween: 20,
@@ -83,7 +65,10 @@ var swiper = new Swiper(".vehicles-slider", {
     },
   });
 
+//==================================== swiper class controls  for car specification slider starts here ===================================
 
+
+//==================================== swiper class controls  for car Auction slider starts here ===================================
   var swiper = new Swiper(".featured-slider", {
     slidesPerView: 1,
     spaceBetween: 20,
@@ -106,6 +91,7 @@ var swiper = new Swiper(".vehicles-slider", {
       },
     },
   });
+//================================ swiper class controls ends here =========================================
 
 
 //======================== car specification swiper starts here =============================================
@@ -162,13 +148,6 @@ var swiper = new Swiper(".vehicles-slider", {
 //======================== car specification swiper ends here =============================================
 
 
-
-
-
-
-   
-
-
 //================== Auction list swiper class 1 starts here ================================================================
     const swiperWrapper1 = document.getElementById('carList1');
     fetch(apiEndpoint)
@@ -213,12 +192,10 @@ var swiper = new Swiper(".vehicles-slider", {
                         body: JSON.stringify(requestBody),
                     })
                     .then(data => {
-                            
-                            openModal('Bid Placed successfully');
-                        
+                
+                            openModal(`Bid Placed successfully on ${carData.carname}`);
                             // window.location.href="index.html";
-                        
-                        
+                         
                         })
                         .catch(error => {
                             console.error('Error:', error);
@@ -280,7 +257,7 @@ fetch(apiEndpoint)
                     body: JSON.stringify(requestBody),
                 })
                 .then(data => {
-                    openModal('Bid Placed successfully');
+                    openModal(`Bid Placed successfully on ${carData.carname}`);
                     // window.location.href = "index.html";
                 })
                 .catch(error => {
@@ -294,14 +271,11 @@ fetch(apiEndpoint)
     .catch(error => {
         console.error('Error fetching data:', error);
     });
-
-
 //========================swiper class 2 ends here =================================
 
 
 
 //====================message modal function  =======================================
-// Modal functions
 function openModal(message) {
     const modal = document.getElementById('customModal');
     const modalMessage = document.getElementById('modalMessage');
@@ -315,39 +289,28 @@ function closeModal() {
     modal.style.display = 'none';
     window.location.href = "index.html";
 }
-// ======================message modal function ends here ================================
+// ====================== message modal function ends here ================================
 
 
-
-
-
-
-
-
-//=====================generate receipt button============================
+//===================== generate receipt button ===================================================
 document.querySelector('#receipt').onclick = () => {
     document.querySelector('.receipt-form-container').classList.toggle('active');
 }
 
 document.querySelector('#close-receipt-form').onclick = () => {
     document.querySelector('.receipt-form-container').classList.remove('active');
-    // window.location.reload();
 }
 
 
 document.addEventListener('DOMContentLoaded', function () {
-    // Close form event
     document.getElementById('close-receipt-form').addEventListener('click', function () {
         document.querySelector('.receipt-form-container').style.display = 'none';
     });
-
-
-
 });
+//====================== generate receipt button ends here ===========================================
 
 
-//receipt generation from api call ======================================================================
-    // Fetch data from API
+//================================= receipt generation start here =================================================
     const apiUrl = 'http://localhost:8090/Receipt/getAllReceipt';
     const email = pasredResponse.email;
     
@@ -392,6 +355,8 @@ document.addEventListener('DOMContentLoaded', function () {
             console.error('Error fetching data:', error);
         });
 
+//================================= receipt generation ends here =================================================
+
 
 
 //=============================================signout function start =========================================
@@ -400,19 +365,6 @@ function logout(){
     window.location.href= "login.html";
 }
 //===============================================signout function ends ======================================
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -440,6 +392,7 @@ let countDownDate = new Date("Mar 10, 2024 12:48:00").getTime();
                 receipt.style.display = 'flex';
             }
         }, 1000);
+
 //==============================//countdown timer starts here =======================================        
 
 
