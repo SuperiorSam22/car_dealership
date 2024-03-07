@@ -224,7 +224,14 @@ var swiper = new Swiper(".vehicles-slider", {
                             console.error('Error:', error);
                             openModal('Failed to update bid. Please try again.');
                         });
-                });
+                }
+                
+                
+                
+                
+                
+                
+                );
                 swiperWrapper1.appendChild(carSlide);
             });
         })
@@ -296,11 +303,11 @@ fetch(apiEndpoint)
     });
 
 
-//========================swiper class 2 ends here =================================
+//======================== swiper class 2 ends here =================================
 
 
 
-//====================message modal function  =======================================
+//==================== message modal function  =======================================
 // Modal functions
 function openModal(message) {
     const modal = document.getElementById('customModal');
@@ -403,7 +410,10 @@ function logout(){
 
 
 
+//===================================bid winner section car display start===========================================
 
+
+//===================================bid winner section car display end===========================================
 
 
 
