@@ -436,7 +436,6 @@ section{
 }
 
 .featured .featured-slider .box img{
-    /* height: 13rem; */
     width: 100%;
     height: 22rem;
     padding:2rem;
@@ -487,8 +486,6 @@ section{
 .featured .featured-slider .box:hover {
     transform: translateY(-15px); /* Adjust the float distance as needed */
 }
-
-
 
 
 
@@ -674,6 +671,64 @@ section{
 
 .name-span p{
     background-color: rgb(232, 232, 232);
+}
+
+
+
+/* specification icon css */
+.main-specs-div {
+    display: flex;
+}
+
+.specs-col1{
+    margin-right: 40px;
+}
+
+
+
+.specs-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.specs-box{
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: start;
+    border: 2px solid grey;
+    border-radius: 1rem;
+    max-width: 16rem;
+    margin-bottom: 10px;
+}
+
+.specs-box:hover{
+    background-color: #ccc;
+    cursor: default;
+}
+
+.specs-box .fa-solid.fa-gears,
+.fa-car, .fa-bolt{
+    font-size: 20px;
+    padding-top: 20px;
+    padding-right: 10px;
+    padding-left: 10px;
+
+}
+
+.specs-box .fa-solid.fa-bolt{
+    font-size: 20px;
+    padding-top: 35px;
+    padding-right: 10px;
+    padding-left: 10px;
+
+}
+.specs-box .fa-solid.fa-gauge-high{
+    font-size: 20px;
+    padding-top: 13px;
+    padding-right: 10px;
+    padding-left: 10px;
+
 }
 
 
